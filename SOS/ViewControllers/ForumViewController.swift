@@ -19,7 +19,11 @@ class ForumViewController: UIViewController {
         }
     }
     
-    var categories: [String] = []
+    var categories: [String] = [] {
+        didSet {
+            print("categories: \(categories)")
+        }
+    }
 
     
     
@@ -29,6 +33,10 @@ class ForumViewController: UIViewController {
         
         if let questions = JSONParsingService.parseJSONFile(filename: "ForumQA", type: "json") {
             forumQuestions = questions
+        }
+        
+        for ques in forumQuestions {
+            categories.append(ques.category)
         }
         
         view.addSubview(forumView)
@@ -51,6 +59,7 @@ class ForumViewController: UIViewController {
         let addQuestionVC = AddQuestionViewController()
         present(addQuestionVC, animated: true, completion: nil)
     }
+
 }
 
 
@@ -85,11 +94,11 @@ extension ForumViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Safe Sex"
+            return categories[0]
         case 1:
-            return "Birth Control"
+            return categories[1]
         case 2:
-            return "STD Testing"
+            return categories[2]
         default:
             return "Other"
         }
