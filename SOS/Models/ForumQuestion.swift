@@ -11,4 +11,5 @@ import Foundation
 struct ForumQuestion: Codable {
     let question: String
     let answer: String
+    let category: String
 }

@@ -9,17 +9,17 @@
 import Foundation
 
 class JSONParsingService {
-    static func parseJSONFile(filename: String, type: String) -> [Fellow]? {
-        var fellows: [Fellow]? = nil
+    static func parseJSONFile(filename: String, type: String) -> [ForumQuestion]? {
+        var questions: [ForumQuestion]? = nil
         if let pathname = Bundle.main.path(forResource: filename, ofType: type) {
             guard let jsonData = FileManager.default.contents(atPath: pathname) else { return nil }
             do {
                 let decoder = JSONDecoder()
-                fellows = try decoder.decode([Fellow].self, from: jsonData)
+                questions = try decoder.decode([ForumQuestion].self, from: jsonData)
             } catch {
                 print("read json error: \(error.localizedDescription)")
             }
         }
-        return fellows
+        return questions
     }
 }
