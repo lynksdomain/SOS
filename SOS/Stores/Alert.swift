@@ -10,10 +10,8 @@ import UIKit
 
 struct Alert {
     enum AlertType {
-        case disabledFacebookButton
-        case noImageToPost
-        case postFailure
-        case postSuccess
+        case wrongPassword
+        case loginSuccessful
     }
     
     let title: String
@@ -28,20 +26,12 @@ struct Alert {
     
     init(type: AlertType) {
         switch type {
-        case .disabledFacebookButton:
-            title = "Error"
-            message = "Facebook button disabled for now"
+        case .wrongPassword:
+            title = "Wrong password"
+            message = "Enter the correct password"
             actions = ["OK"]
-        case .noImageToPost:
-            title = "Upload Failed!"
-            message = "Provide an image to upload"
-            actions = ["OK"]
-        case .postFailure:
-            title = "Upload Failed!"
-            message = "DEV: Check console for error message"
-            actions = ["OK"]
-        case .postSuccess:
-            title = "Photo Uploaded!"
+        case .loginSuccessful:
+            title = "Logged in"
             message = nil
             actions = ["OK"]
         }

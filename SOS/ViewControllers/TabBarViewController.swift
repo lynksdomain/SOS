@@ -10,8 +10,6 @@ import UIKit
 
 class TabBarVC: UIViewController {
     
-    var model = TestSiteDataManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTabBar(into: self)
@@ -28,7 +26,6 @@ class TabBarVC: UIViewController {
         
         tabController.setViewController(MyInfoViewController().inNavController(), atIndex: 1)
         tabController.setTitle("User", atIndex: 1)
-        tabController.highlightButton(atIndex: 1)
         
         tabController.setViewController(ForumViewController().inNavController(), atIndex: 2)
         tabController.setTitle("Forum", atIndex: 2)
@@ -46,29 +43,3 @@ class TabBarVC: UIViewController {
         tabController.animateTabChange = true
     }
 }
-
-//extension TabBarVC: AuthDelegate {
-//    func didSignIn(user: User) {
-//        print("Signed in user \(String(describing: user.email?.description))")
-//        loginCoordinator.finish()
-//    }
-//
-//    func didCreateUser(user: User) {
-//        print("Created user \(String(describing: user.email?.description))")
-//        loginCoordinator.finish()
-//    }
-//
-//    func failedSignIn(error: Error) {
-//        print("Failed to sign in!")
-//        handle(error: error)
-//    }
-//
-//    func failedCreateUser(error: Error) {
-//        print("Failed to create user!")
-//        handle(error: error)
-//    }
-//
-//}
-
-
-
