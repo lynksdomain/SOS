@@ -18,6 +18,7 @@ enum Stylesheet {
         static let Blue = UIColor(hex: "#7AA0CC")
         static let LightBlue = UIColor(hex: "#9AC9FF")
         static let UltraLightGray = UIColor(hex: "e8e8e8")
+        static let LightPink = UIColor(hex: "E1AEA5")
         // Colors borrowed from Tweetbot's dark color scheme
     }
     
@@ -58,7 +59,7 @@ enum Stylesheet {
             //            static let ButtonsBackgroundColor = Stylesheet.Colors.Blue
             
             //The color of the selection indicator.
-            static let SelectionIndicatorColor = Stylesheet.Colors.LightBlue
+            static let SelectionIndicatorColor = Stylesheet.Colors.LightPink
             
             // change the seperator line color
             static let SeparatorLineColor = Stylesheet.Colors.LightGray
