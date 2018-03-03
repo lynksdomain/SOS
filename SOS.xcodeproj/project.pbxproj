@@ -10,6 +10,9 @@
 		089D9265D0BCBCEECFCE99D4 /* Pods_SOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308C07E0CB09D60A9A2C028 /* Pods_SOS.framework */; };
 		81496913204B22000080B15C /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496912204B22000080B15C /* ForumView.swift */; };
 		81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */; };
+		819AFFD2204B2BEE0003E68C /* ForumQA.json in Resources */ = {isa = PBXBuildFile; fileRef = 819AFFD1204B2BEE0003E68C /* ForumQA.json */; };
+		819AFFD4204B2CBA0003E68C /* ForumQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */; };
+		819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD5204B30D20003E68C /* JSONParsingService.swift */; };
 		81BE5AD0204AFA440077E5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */; };
 		81BE5AD7204AFA440077E5E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD6204AFA440077E5E2 /* Assets.xcassets */; };
 		81BE5ADA204AFA440077E5E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD8204AFA440077E5E2 /* LaunchScreen.storyboard */; };
@@ -60,6 +63,9 @@
 		7C7502BCC9F1DB29798096EB /* Pods-SOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81496912204B22000080B15C /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
 		81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		819AFFD1204B2BEE0003E68C /* ForumQA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ForumQA.json; sourceTree = "<group>"; };
+		819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestion.swift; sourceTree = "<group>"; };
+		819AFFD5204B30D20003E68C /* JSONParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingService.swift; sourceTree = "<group>"; };
 		81BE5ACC204AFA440077E5E2 /* SOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BE5AD6204AFA440077E5E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */,
+				819AFFD5204B30D20003E68C /* JSONParsingService.swift */,
 				C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */,
 				C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */,
 			);
@@ -214,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				81BE5B20204B0DE80077E5E2 /* TestSite.swift */,
+				819AFFD1204B2BEE0003E68C /* ForumQA.json */,
+				819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,6 +375,7 @@
 				81BE5ADA204AFA440077E5E2 /* LaunchScreen.storyboard in Resources */,
 				81BE5AD7204AFA440077E5E2 /* Assets.xcassets in Resources */,
 				81BE5B1E204B08780077E5E2 /* AZTabBarController.xib in Resources */,
+				819AFFD2204B2BEE0003E68C /* ForumQA.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +431,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
 				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
@@ -432,6 +443,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
@@ -507,6 +519,7 @@
 				81BE5B18204B08780077E5E2 /* LoginCoordinator.swift in Sources */,
 				81BE5AFC204B02460077E5E2 /* AddQuestionViewController.swift in Sources */,
 				81BE5AFE204B02B20077E5E2 /* QuestionDetailViewController.swift in Sources */,
+				819AFFD4204B2CBA0003E68C /* ForumQuestion.swift in Sources */,
 				81BE5AD0204AFA440077E5E2 /* AppDelegate.swift in Sources */,
 				81BE5B17204B08780077E5E2 /* Alert.swift in Sources */,
 				81BE5B23204B20C90077E5E2 /* MyInfoView.swift in Sources */,
@@ -518,6 +531,7 @@
 				81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */,
 				81BE5AF8204B01ED0077E5E2 /* MyInfoViewController.swift in Sources */,
 				81BE5B25204B20E40077E5E2 /* NetworkHelper.swift in Sources */,
+				819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */,
 				81496913204B22000080B15C /* ForumView.swift in Sources */,
 				81BE5AF6204B01BB0077E5E2 /* SiteDetailViewController.swift in Sources */,
 				81BE5B1F204B08780077E5E2 /* AZTabBarController.swift in Sources */,
