@@ -26,6 +26,7 @@ class TabBarVC: UIViewController {
         
         tabController.setViewController(MyInfoViewController().inNavController(), atIndex: 1)
         tabController.setTitle("User", atIndex: 1)
+        tabController.highlightButton(atIndex: 1)
         
         tabController.setViewController(ForumViewController().inNavController(), atIndex: 2)
         tabController.setTitle("Forum", atIndex: 2)
