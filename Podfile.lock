@@ -14,7 +14,6 @@ PODS:
     - FBSDKLoginKit (= 4.26.0)
     - Validator (~> 2.1.1)
   - SnapKit (4.0.0)
-  - SVProgressHUD (2.2.5)
   - TableFlip (1.2)
   - Validator (2.1.1)
 
@@ -22,7 +21,6 @@ DEPENDENCIES:
   - EasyNotificationBadge
   - ILLoginKit
   - SnapKit (~> 4.0.0)
-  - SVProgressHUD
   - TableFlip
 
 SPEC CHECKSUMS:
@@ -32,10 +30,9 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   ILLoginKit: 8adbc63cf1994c918b1a8e2a76676a847ac99404
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TableFlip: 2ae22773412b295a7cbc54d95b44085bb28092f6
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: 054efc0b8bcee8c09173fc458081f79d35c1d9b9
+PODFILE CHECKSUM: e648cf216629352ee0734399169b8b6d6c527291
 
 COCOAPODS: 1.4.0
