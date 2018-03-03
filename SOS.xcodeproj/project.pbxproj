@@ -40,6 +40,8 @@
 		81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B26204B239E0077E5E2 /* SearchView.swift */; };
 		81BE5B29204B31FD0077E5E2 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B28204B31FD0077E5E2 /* LocationService.swift */; };
 		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
+		C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */; };
+		C4C4F641204B3C9A0041C063 /* TestSiteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */; };
 		E5ABFCDD9C26E2799BFB76C8 /* Pods_SOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,8 @@
 		81BE5B28204B31FD0077E5E2 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		A0ABA4E01B52828A6CD2A199 /* Pods-SOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteAPIClient.swift; sourceTree = "<group>"; };
+		C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteDataManager.swift; sourceTree = "<group>"; };
 		C56E74C6A56AD614D78FFA78 /* Pods-SOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,6 +207,8 @@
 			children = (
 				81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */,
 				81BE5B28204B31FD0077E5E2 /* LocationService.swift */,
+				C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */,
+				C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -418,7 +424,6 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
 				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
@@ -430,7 +435,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
@@ -510,6 +514,7 @@
 				81BE5B17204B08780077E5E2 /* Alert.swift in Sources */,
 				81BE5B23204B20C90077E5E2 /* MyInfoView.swift in Sources */,
 				81BE5B1D204B08780077E5E2 /* AZTabBarDelegate.swift in Sources */,
+				C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */,
 				81BE5AF4204B01910077E5E2 /* ResultViewController.swift in Sources */,
 				81BE5B15204B08780077E5E2 /* Stylesheet.swift in Sources */,
 				81BE5B29204B31FD0077E5E2 /* LocationService.swift in Sources */,
@@ -525,6 +530,7 @@
 				81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */,
 				81BE5AFA204B02180077E5E2 /* ForumViewController.swift in Sources */,
 				81BE5B1B204B08780077E5E2 /* AZTabBarButtonDelegate.swift in Sources */,
+				C4C4F641204B3C9A0041C063 /* TestSiteDataManager.swift in Sources */,
 				81BE5B1A204B08780077E5E2 /* UIApplication+topViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = SOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = c.SOS;
@@ -687,6 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBE99A2Y96;
 				INFOPLIST_FILE = SOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = c.SOS;
