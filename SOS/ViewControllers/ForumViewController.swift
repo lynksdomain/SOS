@@ -40,7 +40,7 @@ class ForumViewController: UIViewController {
         
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
-//        forumView.tableView.dataSource = self
+        forumView.tableView.dataSource = self
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
         
@@ -121,11 +121,6 @@ extension ForumViewController: UITableViewDataSource {
             return cell
             
         }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
-//        let currentQuestion = forumQuestions[indexPath.row]
-//        cell.questionLabel.text = currentQuestion.question
-//        cell.answerLabel.text = currentQuestion.answer
-//        return cell
     }
     
     
