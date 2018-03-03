@@ -24,8 +24,6 @@ class ForumViewController: UIViewController {
             print("categories: \(categories)")
         }
     }
-
-    
     
     
     override func viewDidLoad() {
@@ -35,6 +33,7 @@ class ForumViewController: UIViewController {
             forumQuestions = questions
         }
         
+        // load question categories
         for ques in forumQuestions {
             categories.append(ques.category)
         }
@@ -66,23 +65,67 @@ class ForumViewController: UIViewController {
 extension ForumViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return categories.count
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return forumQuestions.count
+        
+        // load number of question cells per category
+        
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case 2:
+            return 1
+        default:
+            return 5
+        }
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
-        let currentQuestion = forumQuestions[indexPath.row]
-        cell.questionLabel.text = currentQuestion.question
-        cell.answerLabel.text = currentQuestion.answer
         
-        return cell
+        
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+//            let currentQuestion = forumQuestions[indexPath.row]
+            let currentQuestion = forumQuestions[0]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+//            let currentQuestion = forumQuestions[indexPath.row]
+            let currentQuestion = forumQuestions[1]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+//            let currentQuestion = forumQuestions[indexPath.row]
+            let currentQuestion = forumQuestions[2]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+//            let currentQuestion = forumQuestions[indexPath.row]
+            let currentQuestion = forumQuestions[0]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+            
+        }
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+//        let currentQuestion = forumQuestions[indexPath.row]
+//        cell.questionLabel.text = currentQuestion.question
+//        cell.answerLabel.text = currentQuestion.answer
+//        return cell
     }
     
     
