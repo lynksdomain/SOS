@@ -13,24 +13,33 @@ class SearchViewController: UIViewController {
 
     let searchView = SearchView()
     var currentLocation = CLLocation()
-    private var annotations = [MKAnnotation]()
+    private var annotations = [MKAnnotation](){
+        didSet{
+            DispatchQueue.main.async {
+            self.searchView.mapView.addAnnotations(self.annotations)
+            self.searchView.mapView.showAnnotations(self.annotations, animated: true)
+            }
+        }
+    }
     var testSites = [TestSite](){
         didSet{
             for site in testSites{
-                
-            let annotation = MKPointAnnotation()
-                LocationService.manager.getCityCordinateFromCityName(inputCityName: site.address!, completion: { (location) in
+                let annotation = MKPointAnnotation()
+                let address = "\(site.address!) \(site.city!) \(site.zipCode!)"
+                LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
+
                     annotation.coordinate = location.coordinate
+                    annotation.title = site.siteName
+                    self.annotations.append(annotation)
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
-            annotation.title = site.siteName
-            annotations.append(annotation)
-        }
-        DispatchQueue.main.async {
-            self.searchView.mapView.addAnnotations(self.annotations)
-            self.searchView.mapView.showAnnotations(self.annotations, animated: true)
-        }
+            }
+//            DispatchQueue.main.async {
+//                self.searchView.mapView.addAnnotations(self.annotations)
+//                self.searchView.mapView.showAnnotations(self.annotations, animated: true)
+//
+//            }
         }
     }
     
@@ -76,9 +85,13 @@ extension SearchViewController: UISearchBarDelegate{
             }
             // this will move the map to a a valid city if not the alert will kick in and notify the user for the error
         LocationService.manager.getCityCordinateFromCityName(inputCityName: cityName, completion: {
-                   print($0)
                    self.currentLocation = $0
-                   self.configureMapRegion(from: self.currentLocation)
+//                   self.configureMapRegion(from: self.currentLocation)
+            TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
+                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode == searchBar.text}
+            }, errorHandler: { (testSiteError) in
+                print("getting the tests messed up: " + testSiteError.localizedDescription)
+            })
             }, errorHandler: {
                 let alert = UIAlertController(title: "Invalid Zip Code, please enter a valid zip code", message: "\($0)", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
@@ -109,5 +122,39 @@ extension SearchViewController: UISearchBarDelegate{
 //            LocationService.manager.getCityCordinateFromCityName(inputCityName: currentCity, completion: {location = $0}, errorHandler: {print($0)})
 //
 //        }
+//    }
+}
+
+extension SearchViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        var annotationView = self.searchView.mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceAnnotationView") as? MKMarkerAnnotationView
+        if annotationView == nil{
+            //Setup annotationView
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceAnnotationView")
+            annotationView?.canShowCallout = true
+            let index = annotations.index{$0 === annotation}
+            if let annotationIndex = index {
+                let site = testSites[annotationIndex]
+            }
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        // find place selected
+//
+//        let index = annotations.index{$0 === view.annotation}
+//        guard let annotationIndex = index else { print("index is nil"); return }
+//        let site = testSites[annotationIndex]
+//        currentSelectedSite = site
+//    }
+//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        let detailVC = VenueDetailedViewController(venue: currentSelectedVenue)
+//        navigationController?.pushViewController(detailVC, animated: true)
 //    }
 }

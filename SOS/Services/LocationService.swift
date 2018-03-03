@@ -69,8 +69,9 @@ extension LocationService: CLLocationManagerDelegate{
         guard let location = locations.last else { print("no location data"); return }
         
         // update user preferences
-//        UserPreference.manager.setLatitude(latitude: location.coordinate.latitude)
-//        UserPreference.manager.setLongitude(longitude: location.coordinate.longitude)
+        UserPreference.manager.setLatitude(latitude: location.coordinate.latitude)
+        UserPreference.manager.setLongitude(longitude: location.coordinate.longitude)
+        
         locationManager.stopUpdatingLocation()
         delegate?.userAllowedLocation(with: location)
         
@@ -127,18 +128,53 @@ extension LocationService {
     }
     
     func getCityCordinateFromCityName(inputCityName: String, completion: @escaping (CLLocation)->Void, errorHandler:@escaping (Error)->Void){
-        self.geoCOder.geocodeAddressString(inputCityName) { (placeMarks, error) in
+        print(inputCityName)
+        CLGeocoder().geocodeAddressString(inputCityName) { (placeMarks, error) in
+            print(inputCityName + "in geocode")
             if let error = error{
                 print(error)
                 errorHandler(error)
             }
             guard let place = placeMarks?.first else{
                 print("DEV: error getting places from the CLLocation")
-                
                 return
             }
             completion(place.location!)
         }
+        /*
+        self.geoCOder.geocodeAddressString(inputCityName) { (placeMarks, error) in
+            print(inputCityName + "in geocode")
+            if let error = error{
+                print(error)
+                errorHandler(error)
+            }
+            guard let place = placeMarks?.first else{
+                print("DEV: error getting places from the CLLocation")
+                return
+            }
+            completion(place.location!)
+        }
+         */
+    }
+}
+
+
+
+
+extension SearchViewController: LocationDelegate{
+    func userDeniedLocation() {
+//        LocationService.manager.getCityCordinateFromCityName(inputCityName: "New York City", completion: { (location) in
+//            self.configureMapRegion(from: location)
+//            VenueAFireAPIClient.manager.getVenues(searchTerm: "Coffee", location: location, completionHandler: {self.venues = $0
+//            }, errorHandler: {print($0)})
+//        }, errorHandler: {_ in print("error")})
+        
+        
+    }
+    
+    func userAllowedLocation(with location: CLLocation) {
+        configureMapRegion(from: location)
+//        self.searchView.mapView.showsUserLocation = true
     }
 }
 
