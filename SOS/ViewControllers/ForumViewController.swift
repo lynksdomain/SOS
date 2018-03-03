@@ -20,7 +20,7 @@ class ForumViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
-        forumView.tableView.dataSource = self
+//        forumView.tableView.dataSource = self
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
     }
@@ -40,16 +40,17 @@ class ForumViewController: UIViewController {
 }
 
 
-extension ForumViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
-}
+//extension ForumViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//    }
+//
+//
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
+
