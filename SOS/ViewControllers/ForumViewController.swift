@@ -12,12 +12,15 @@ import SnapKit
 class ForumViewController: UIViewController {
     var forumView = ForumView()
     
-    var forumQuestions: [String] = []
+    var forumQuestions: [ForumQuestion] = []
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let questions = JSON
+        
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
         forumView.tableView.dataSource = self
@@ -42,13 +45,19 @@ class ForumViewController: UIViewController {
 
 extension ForumViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return forumQuestions.count
         
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+        let currentQuestion = forumQuestions[indexPath.row]
+        cell.questionLabel = currentQuestion
+//        cell
+        
+        return cell
     }
     
     
