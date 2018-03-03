@@ -40,7 +40,7 @@ class ForumViewController: UIViewController {
         
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
-        forumView.tableView.dataSource = self
+//        forumView.tableView.dataSource = self
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
         
