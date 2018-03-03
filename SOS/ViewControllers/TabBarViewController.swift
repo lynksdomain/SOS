@@ -10,6 +10,8 @@ import UIKit
 
 class TabBarVC: UIViewController {
     
+    var model = TestSiteDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTabBar(into: self)
