@@ -6,13 +6,12 @@ target 'SOS' do
   use_frameworks!
 
   # Pods for SOS
-pod 'Firebase'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
+
 pod 'SVProgressHUD'
 pod 'SnapKit', '~> 4.0.0'
-pod ‘ILLoginKit’
+pod 'ILLoginKit'
 pod 'TableFlip'
+
 
 
 
