@@ -33,6 +33,7 @@
 		81BE5B1E204B08780077E5E2 /* AZTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5B13204B08780077E5E2 /* AZTabBarController.xib */; };
 		81BE5B1F204B08780077E5E2 /* AZTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B14204B08780077E5E2 /* AZTabBarController.swift */; };
 		81BE5B21204B0DE80077E5E2 /* TestSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B20204B0DE80077E5E2 /* TestSite.swift */; };
+		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
 		E5ABFCDD9C26E2799BFB76C8 /* Pods_SOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		81BE5B14204B08780077E5E2 /* AZTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTabBarController.swift; sourceTree = "<group>"; };
 		81BE5B20204B0DE80077E5E2 /* TestSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSite.swift; sourceTree = "<group>"; };
 		A0ABA4E01B52828A6CD2A199 /* Pods-SOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C56E74C6A56AD614D78FFA78 /* Pods-SOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 				81BE5AFB204B02460077E5E2 /* AddQuestionViewController.swift */,
 				81BE5AFD204B02B20077E5E2 /* QuestionDetailViewController.swift */,
 				81BE5AEF204B013B0077E5E2 /* LoginViewController.swift */,
+				C48A456E204B176800F4F7FC /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SOS/Pods-SOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/EasyNotificationBadge/EasyNotificationBadge.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
@@ -395,6 +399,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyNotificationBadge.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
@@ -468,6 +473,7 @@
 			files = (
 				81BE5B1C204B08780077E5E2 /* AZTabBarButton.swift in Sources */,
 				81BE5AF2204B01700077E5E2 /* SearchViewController.swift in Sources */,
+				C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */,
 				81BE5B21204B0DE80077E5E2 /* TestSite.swift in Sources */,
 				81BE5AF0204B013B0077E5E2 /* LoginViewController.swift in Sources */,
 				81BE5B18204B08780077E5E2 /* LoginCoordinator.swift in Sources */,
