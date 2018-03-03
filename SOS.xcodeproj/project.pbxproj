@@ -40,6 +40,7 @@
 		81BE5B21204B0DE80077E5E2 /* TestSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B20204B0DE80077E5E2 /* TestSite.swift */; };
 		81BE5B23204B20C90077E5E2 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B22204B20C90077E5E2 /* MyInfoView.swift */; };
 		81BE5B25204B20E40077E5E2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */; };
+		81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B26204B239E0077E5E2 /* SearchView.swift */; };
 		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
 		E5ABFCDD9C26E2799BFB76C8 /* Pods_SOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		81BE5B20204B0DE80077E5E2 /* TestSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSite.swift; sourceTree = "<group>"; };
 		81BE5B22204B20C90077E5E2 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		81BE5B26204B239E0077E5E2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		A0ABA4E01B52828A6CD2A199 /* Pods-SOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C56E74C6A56AD614D78FFA78 /* Pods-SOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				81BE5B22204B20C90077E5E2 /* MyInfoView.swift */,
+				81BE5B26204B239E0077E5E2 /* SearchView.swift */,
 				81496912204B22000080B15C /* ForumView.swift */,
 			);
 			path = Views;
@@ -518,6 +521,7 @@
 				81BE5AF4204B01910077E5E2 /* ResultViewController.swift in Sources */,
 				81BE5B15204B08780077E5E2 /* Stylesheet.swift in Sources */,
 				81BE5B19204B08780077E5E2 /* UIColor+Hex.swift in Sources */,
+				81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */,
 				81BE5AF8204B01ED0077E5E2 /* MyInfoViewController.swift in Sources */,
 				81BE5B25204B20E40077E5E2 /* NetworkHelper.swift in Sources */,
 				819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */,
