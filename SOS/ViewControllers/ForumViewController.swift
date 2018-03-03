@@ -7,20 +7,25 @@
 //
 
 import UIKit
+import SnapKit
 
 class ForumViewController: UIViewController {
-
+    var forumView = ForumView()
+    
+    var forumQuestions: [String] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addSubview(forumView)
+        view.backgroundColor = Stylesheet.Colors.White
+        forumView.tableView.dataSource = self
+        forumView.tableView.rowHeight = UITableViewAutomaticDimension
+        forumView.tableView.estimatedRowHeight = 120
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
 
     /*
     // MARK: - Navigation
@@ -32,4 +37,19 @@ class ForumViewController: UIViewController {
     }
     */
 
+}
+
+
+extension ForumViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }

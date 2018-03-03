@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		089D9265D0BCBCEECFCE99D4 /* Pods_SOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308C07E0CB09D60A9A2C028 /* Pods_SOS.framework */; };
+		81496913204B22000080B15C /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496912204B22000080B15C /* ForumView.swift */; };
+		81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */; };
 		81BE5AD0204AFA440077E5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */; };
 		81BE5AD7204AFA440077E5E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD6204AFA440077E5E2 /* Assets.xcassets */; };
 		81BE5ADA204AFA440077E5E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD8204AFA440077E5E2 /* LaunchScreen.storyboard */; };
@@ -54,6 +56,8 @@
 		1DEC42B8F00F540D029F8F82 /* Pods-SOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.release.xcconfig"; sourceTree = "<group>"; };
 		6308C07E0CB09D60A9A2C028 /* Pods_SOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7502BCC9F1DB29798096EB /* Pods-SOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		81496912204B22000080B15C /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
+		81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		81BE5ACC204AFA440077E5E2 /* SOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BE5AD6204AFA440077E5E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81496914204B223A0080B15C /* CustomTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */,
+			);
+			name = CustomTableViewCells;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		81BE5AC3204AFA440077E5E2 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 				81BE5ADB204AFA440077E5E2 /* Info.plist */,
 				81BE5B08204B08780077E5E2 /* Stores */,
 				81BE5B07204B05C90077E5E2 /* Views */,
+				81496914204B223A0080B15C /* CustomTableViewCells */,
 				81BE5B06204B05A00077E5E2 /* Models */,
 				81BE5B05204B05740077E5E2 /* Services */,
 				81BE5B03204B04FD0077E5E2 /* ViewControllers */,
@@ -203,6 +217,7 @@
 			children = (
 				81BE5B22204B20C90077E5E2 /* MyInfoView.swift */,
 				81BE5B26204B239E0077E5E2 /* SearchView.swift */,
+				81496912204B22000080B15C /* ForumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,10 +513,12 @@
 				81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */,
 				81BE5AF8204B01ED0077E5E2 /* MyInfoViewController.swift in Sources */,
 				81BE5B25204B20E40077E5E2 /* NetworkHelper.swift in Sources */,
+				81496913204B22000080B15C /* ForumView.swift in Sources */,
 				81BE5AF6204B01BB0077E5E2 /* SiteDetailViewController.swift in Sources */,
 				81BE5B1F204B08780077E5E2 /* AZTabBarController.swift in Sources */,
 				81BE5B02204B04DA0077E5E2 /* EditInfoViewController.swift in Sources */,
 				81BE5B16204B08780077E5E2 /* UIViewController+Nav.swift in Sources */,
+				81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */,
 				81BE5AFA204B02180077E5E2 /* ForumViewController.swift in Sources */,
 				81BE5B1B204B08780077E5E2 /* AZTabBarButtonDelegate.swift in Sources */,
 				81BE5B1A204B08780077E5E2 /* UIApplication+topViewController.swift in Sources */,
