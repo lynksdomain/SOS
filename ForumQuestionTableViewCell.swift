@@ -7,14 +7,57 @@
 //
 
 import UIKit
+import SnapKit
 
 class ForumQuestionTableViewCell: UITableViewCell {
+    
+    lazy var questionLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = " "
+        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 15.0)
+        lb.numberOfLines = 0
+        return lb
+    }()
+    
+    //usernameLabel - for user name
+    lazy var answerLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = " "
+        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 15.0)
+        lb.numberOfLines = 0
+        return lb
+    }()
 
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: "ForumQuestionCell")
+        setupViews()
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+//        setupViews()
+    }
+    
+    private func setupViews() {
+        self.addSubview(questionLabel)
+        self.addSubview(answerLabel)
+        setupConstraints()
+    }
+    
+    
+    private func setupConstraints() {
+        questionLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp.top).offset(5)
+            make.leading.equalTo(self.snp.leading).offset(10)
+            make.trailing.equalTo(self.snp.trailing).offset(-10)
+//            make.height.equalTo(.snp.height).multipliedBy(0.5)
+        }
+     
+        answerLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(questionLabel.snp.bottom).offset(5)
+            make.leading.equalTo(self.snp.leading).offset(10)
+            make.trailing.equalTo(self.snp.trailing).offset(-10)
+            make.bottom.equalTo(self.snp.bottom).offset(-5)
+        }
+    }
 }
