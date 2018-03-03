@@ -42,6 +42,8 @@ class LoginViewController: UIViewController {
     func validatePassword() {
         if password == correctPassword {
             present(TabBarVC(), animated: true, completion: nil)
+            contentView.passwordView.text?.removeAll()
+            password = ""
         } else {
             Alert.present(from: .wrongPassword)
         }

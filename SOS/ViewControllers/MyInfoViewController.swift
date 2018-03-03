@@ -12,6 +12,32 @@ class MyInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< Updated upstream
+=======
+        view.addSubview(myInfoView)
+        myInfoView.tableView.delegate = self
+        myInfoView.tableView.dataSource = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+        myInfoView.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: "NotesCell")
+        myInfoView.tableView.register(ProfileCells.self, forCellReuseIdentifier: "ProfileCell")
+        myInfoView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryCell")
+        myInfoView.tableView.allowsSelection = false
+    }
+    
+    @objc private func editButton() {
+        counter += 1
+        editPage(counter: counter)
+        myInfoView.tableView.reloadData()
+    }
+    
+    @objc private func logOut() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+>>>>>>> Stashed changes
 
         // Do any additional setup after loading the view.
     }
