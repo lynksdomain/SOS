@@ -210,12 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */,
-<<<<<<< HEAD
 				819AFFD5204B30D20003E68C /* JSONParsingService.swift */,
-=======
 				C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */,
 				C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */,
->>>>>>> a43f7ba76c7316c5eebd526b19a42f7e8928945c
 			);
 			path = Services;
 			sourceTree = "<group>";
