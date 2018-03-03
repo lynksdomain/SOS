@@ -9,6 +9,7 @@ target 'SOS' do
 
 pod 'SVProgressHUD'
 pod 'SnapKit', '~> 4.0.0'
+pod 'EasyNotificationBadge'
 pod 'ILLoginKit'
 pod 'TableFlip'
 
