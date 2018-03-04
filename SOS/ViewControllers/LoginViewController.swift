@@ -13,7 +13,6 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController {
 
-    
     enum PasswordPin: String {
         case one = "1"
         case two = "2"
@@ -27,11 +26,10 @@ class LoginViewController: UIViewController {
         case zero = "0"
         case clear = "Clear"
         case delete = "X"
-        case faceID = "FaceID"
     }
     
     let contentView = LoginView()
-    let enumModel: [PasswordPin] = [.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .clear, .delete, .faceID]
+    let enumModel: [PasswordPin] = [.one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .clear, .delete]
     let correctPassword = "9999"
     var password = "" {
         didSet {
@@ -47,7 +45,7 @@ class LoginViewController: UIViewController {
         prepareContentView()
         contentView.feedCollectionView.delegate = self
         contentView.feedCollectionView.dataSource = self
-        
+        contentView.touchIDImageView.addTarget(self, action: #selector(authenticationWithTouchID), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,9 +96,6 @@ extension LoginViewController: UICollectionViewDelegate {
                     contentView.passwordView.text?.removeLast()
                     self.password = passwordInput
                 }
-            case .faceID:
-                authenticationWithTouchID()
-                
             default:
                 contentView.passwordView.text! += pin.rawValue
                 self.password = contentView.passwordView.text!
@@ -127,7 +122,7 @@ extension LoginViewController: UICollectionViewDataSource {
 
 extension LoginViewController{
     
-    func authenticationWithTouchID() {
+    @objc func authenticationWithTouchID() {
         let localAuthenticationContext = LAContext()
         localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
         
