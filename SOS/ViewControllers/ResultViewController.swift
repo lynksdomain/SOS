@@ -97,6 +97,12 @@ class ResultViewController: UIViewController {
         contentView.categoryCollectionView.dataSource = self
         filterModel.delegate = self
         prepareContentView()
+        configureNavBar()
+    }
+    
+    private func configureNavBar() {
+        let textAttributes = [NSAttributedStringKey.foregroundColor: Stylesheet.Colors.MainOrange]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     convenience init(sites: [TestSite]) {
