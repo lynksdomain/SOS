@@ -110,7 +110,7 @@ extension ResultViewController: UITableViewDelegate {
         }
         
         let site = dataSource[indexPath.row]
-        navigationController?.pushViewController(SiteDetailViewController(site: site), animated: true)
+//        navigationController?.pushViewController(SiteDetailViewController(site: site), animated: true)
     }
 }
 
