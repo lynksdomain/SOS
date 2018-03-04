@@ -192,14 +192,16 @@ extension MyInfoViewController {
         case 1:
             textField.isEnabled = true
             textField.backgroundColor = .lightText
-            textField.layer.borderWidth = 1.0
-            textField.layer.borderColor = UIColor.black.cgColor
+            textField.layer.borderWidth = 0.5
+            textField.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
             textField.borderStyle = .roundedRect
+            textField.textAlignment = .right
         case 0:
             textField.isEnabled = false
-            textField.backgroundColor = Stylesheet.Colors.LightPink
+            textField.backgroundColor = Stylesheet.Colors.MainYellow
             textField.layer.borderWidth = 0.0
             textField.borderStyle = .none
+            textField.textAlignment = .right
         default:
             break
         }
@@ -212,14 +214,14 @@ extension MyInfoViewController {
             notes.backgroundColor = .lightText
         case 0:
             notes.isEditable = false
-            notes.backgroundColor = Stylesheet.Colors.LightPink
+            notes.backgroundColor = Stylesheet.Colors.MainYellow
         default:
             break
         }
     }
     
     func editCellColorDuringEditing(cell: UITableViewCell) {
-        cell.backgroundColor = Stylesheet.Colors.LightPink
+        cell.backgroundColor = Stylesheet.Colors.MainYellow
     }
 }
 

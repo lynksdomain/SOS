@@ -21,7 +21,7 @@ enum Stylesheet {
         static let LightPink = UIColor(hex: "E1AEA5")
         static let MainOrange = UIColor(hex: "F38C2B")
         static let MainRed = UIColor(hex: "E72A34")
-        static let MainYellow = UIColor(hex: "FFE57F")
+        static let MainYellow = UIColor(hex: "ffedad")
         // Colors borrowed from Tweetbot's dark color scheme
     }
     

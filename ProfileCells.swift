@@ -40,14 +40,13 @@ class ProfileCells: UITableViewCell {
             make.leading.equalTo(safeAreaLayoutGuide.snp.leading)
             make.top.bottom.equalTo(safeAreaLayoutGuide)
             make.width.equalTo(safeAreaLayoutGuide).multipliedBy(0.5)
-
         }
     }
     
     func setUpTF() {
         addSubview(answertf)
         answertf.snp.makeConstraints { (make) in
-            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-10)
             make.top.bottom.equalTo(safeAreaLayoutGuide)
             make.width.equalTo(safeAreaLayoutGuide).multipliedBy(0.5)
 
