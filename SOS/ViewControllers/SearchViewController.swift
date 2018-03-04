@@ -10,7 +10,20 @@ import UIKit
 import MapKit
 
 class SearchViewController: UIViewController {
+
     var currentSelectedSite: TestSite?
+    
+    // GETTING DATA FROM API
+    var model = TestSiteDataManager()
+    func getData() {
+        let endpoint = "https://data.cityofnewyork.us/resource/fqke-ix7c.json?$limit=20&$where=zip_code!%3D%22%22"
+        model.APIClient.getTestSites(from: endpoint, completionHandler: { [weak self] (sites) in
+            self?.model.setTestSites(sites)
+        }) { (error) in
+            print(error)
+        }
+    }
+
     let searchView = SearchView()
     var currentLocation = CLLocation()
     private var annotations = [MKAnnotation](){
@@ -22,12 +35,10 @@ class SearchViewController: UIViewController {
         }
     }
     
+    
     var annotatedSites = [TestSite]()
-    
-    
     var testSites = [TestSite](){
         didSet{
-            annotatedSites = []
             for site in testSites{
                
                 let annotation = MKPointAnnotation()
@@ -47,7 +58,6 @@ class SearchViewController: UIViewController {
                             annotation.coordinate = location.coordinate
                             annotation.title = site.siteName
                             self.annotations.append(annotation)
-                            self.annotatedSites.append(site)
                         }
                     }
                     
@@ -83,6 +93,8 @@ class SearchViewController: UIViewController {
             configureMapRegion(from: currentCLLocation)
             self.searchView.mapView.showsUserLocation = true
         }
+        
+        getData()
     }
 
     func configureNavBar(){
@@ -97,6 +109,7 @@ class SearchViewController: UIViewController {
         let span = MKCoordinateSpanMake(0.1, 0.1)
         let region = MKCoordinateRegionMake(inputCLLocation.coordinate, span)
         self.searchView.mapView.setRegion(region, animated: true)
+        
     }
     
     
@@ -104,6 +117,7 @@ class SearchViewController: UIViewController {
     @objc func listNavBarButtonItemAction(){
         //seque to results view controller
         print("it works!")
+        self.navigationController?.pushViewController(ResultViewController(sites: model.getTestSites()), animated: true)
 }
     
 }
@@ -128,7 +142,7 @@ extension SearchViewController: UISearchBarDelegate{
                     lowerBoro = Borough.queens
                     upperBoro = Borough.purpleQueens
                 default:
-                    print("I hate life")
+                    print("default")
                     
                 }
                 var addressSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil && $0.borough != nil}
@@ -186,7 +200,6 @@ extension SearchViewController: MKMapViewDelegate{
             annotationView?.canShowCallout = true
             let index = annotations.index{$0 === annotation}
             if let annotationIndex = index {
-                let site = testSites[annotationIndex]
             }
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }else {
@@ -199,7 +212,7 @@ extension SearchViewController: MKMapViewDelegate{
 
         let index = annotations.index{$0 === view.annotation}
         guard let annotationIndex = index else { print("index is nil"); return }
-        let site = testSites[annotationIndex]
+        let site = annotatedSites[annotationIndex]
         currentSelectedSite = site
     }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -218,11 +231,8 @@ extension SearchViewController: LocationDelegate{
     
     func userAllowedLocation(with location: CLLocation) {
         configureMapRegion(from: location)
-        TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
-            self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil}
-        }, errorHandler: { (testSiteError) in
-            print("getting the tests messed up: " + testSiteError.localizedDescription)
-        })
+        testSites = model.getTestSites()
         self.searchView.mapView.showsUserLocation = true
+        
 }
 }

@@ -46,7 +46,7 @@ enum Stylesheet {
         
         enum TabBarController {
             //default color of the icons on the buttons
-            static let DefaultColor = Stylesheet.Colors.LightPink
+            static let DefaultColor = Stylesheet.Colors.LightGray
             
             //the color of the icon when a menu is selected
             static let SelectedColor =  Stylesheet.Colors.LightPink
@@ -61,7 +61,7 @@ enum Stylesheet {
             static let ButtonsBackgroundColor = Stylesheet.Colors.White
             
             //The color of the selection indicator.
-            static let SelectionIndicatorColor = Stylesheet.Colors.MainOrange
+            static let SelectionIndicatorColor = Stylesheet.Colors.LightPink
             
             // change the seperator line color
             static let SeparatorLineColor = Stylesheet.Colors.LightGray
