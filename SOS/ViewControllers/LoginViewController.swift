@@ -139,7 +139,9 @@ extension LoginViewController{
             localAuthenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString) { success, evaluateError in
                 
                 if success {
-                    self.present(TabBarVC(), animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.present(TabBarVC(), animated: true, completion: nil)
+                    }
                     //TODO: User authenticated successfully, take appropriate action
                     
                 } else {
