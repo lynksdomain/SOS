@@ -10,6 +10,7 @@
 		089D9265D0BCBCEECFCE99D4 /* Pods_SOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6308C07E0CB09D60A9A2C028 /* Pods_SOS.framework */; };
 		81496913204B22000080B15C /* ForumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496912204B22000080B15C /* ForumView.swift */; };
 		81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */; };
+		81660434204C7E1C0096B979 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81660433204C7E1C0096B979 /* LocalAuthentication.framework */; };
 		819AFFD2204B2BEE0003E68C /* ForumQA.json in Resources */ = {isa = PBXBuildFile; fileRef = 819AFFD1204B2BEE0003E68C /* ForumQA.json */; };
 		819AFFD4204B2CBA0003E68C /* ForumQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */; };
 		819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD5204B30D20003E68C /* JSONParsingService.swift */; };
@@ -74,6 +75,7 @@
 		7C7502BCC9F1DB29798096EB /* Pods-SOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81496912204B22000080B15C /* ForumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumView.swift; sourceTree = "<group>"; };
 		81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		81660433204C7E1C0096B979 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		819AFFD1204B2BEE0003E68C /* ForumQA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ForumQA.json; sourceTree = "<group>"; };
 		819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestion.swift; sourceTree = "<group>"; };
 		819AFFD5204B30D20003E68C /* JSONParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingService.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81660434204C7E1C0096B979 /* LocalAuthentication.framework in Frameworks */,
 				089D9265D0BCBCEECFCE99D4 /* Pods_SOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +302,7 @@
 		908B02B2810EA4094F38336A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81660433204C7E1C0096B979 /* LocalAuthentication.framework */,
 				6308C07E0CB09D60A9A2C028 /* Pods_SOS.framework */,
 				FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */,
 			);
@@ -732,10 +736,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RBE99A2Y96;
+				DEVELOPMENT_TEAM = 3B9BY3LUJD;
 				INFOPLIST_FILE = SOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = c.SOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SOS.main;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -748,10 +752,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RBE99A2Y96;
+				DEVELOPMENT_TEAM = 3B9BY3LUJD;
 				INFOPLIST_FILE = SOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = c.SOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SOS.main;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
