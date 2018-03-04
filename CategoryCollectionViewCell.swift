@@ -47,12 +47,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     public func toggleColor() {
         switch categoryLabel.backgroundColor! {
-        case Stylesheet.Colors.LightPink:
+        case Stylesheet.Colors.MainYellow:
             categoryLabel.backgroundColor = Stylesheet.Colors.MainOrange
         case Stylesheet.Colors.MainOrange:
-            categoryLabel.backgroundColor = Stylesheet.Colors.LightPink
+            categoryLabel.backgroundColor = Stylesheet.Colors.MainYellow
         default:
-            categoryLabel.backgroundColor = Stylesheet.Colors.LightPink
+            categoryLabel.backgroundColor = Stylesheet.Colors.MainYellow
         }
     }
     
