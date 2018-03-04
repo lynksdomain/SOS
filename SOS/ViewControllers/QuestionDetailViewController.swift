@@ -9,27 +9,45 @@
 import UIKit
 
 class QuestionDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    let questionView = QuestionDetailView()
+    var question: ForumQuestion!
+    init(question: ForumQuestion) {
+        super.init(nibName: nil, bundle: nil)
+        self.question = question
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nil)
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Stylesheet.Colors.White
+        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
+        setupQuestionDetailView()
+        configureViews()
+        configureNavBar()
+    }
+    private func configureViews() {
+        self.questionView.questionLabel.text = self.question?.question
+        self.questionView.answerTextview.text = self.question?.answer
+    }
+    
+    private func configureNavBar() {
+        
+        navigationItem.title = self.question?.category
+        
+    }
+    
+    private func setupQuestionDetailView(){
+        view.addSubview(questionView)
+        questionView.snp.makeConstraints { (constraint) in
+            constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
 }

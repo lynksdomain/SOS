@@ -18,6 +18,10 @@ enum Stylesheet {
         static let Blue = UIColor(hex: "#7AA0CC")
         static let LightBlue = UIColor(hex: "#9AC9FF")
         static let UltraLightGray = UIColor(hex: "e8e8e8")
+        static let LightPink = UIColor(hex: "E1AEA5")
+        static let MainOrange = UIColor(hex: "F38C2B")
+        static let MainRed = UIColor(hex: "E72A34")
+        static let MainYellow = UIColor(hex: "ffedad")
         // Colors borrowed from Tweetbot's dark color scheme
     }
     
@@ -25,6 +29,7 @@ enum Stylesheet {
         static let Bold = "HelveticaNeue-Bold"
         static let Thin = "HelveticaNeue-Thin"
         static let Light = "HelveticaNeue-Light"
+        static let Regular = "Helvetica Neue"
     }
     
     enum Contexts {
@@ -45,20 +50,19 @@ enum Stylesheet {
             static let DefaultColor = Stylesheet.Colors.LightGray
             
             //the color of the icon when a menu is selected
-            static let SelectedColor =  Stylesheet.Colors.DarkGray
+            static let SelectedColor =  Stylesheet.Colors.MainOrange
             
             //The color of the icon of a highlighted tab
-            static let HighlightColor = UIColor.white
+            static let HighlightColor = Stylesheet.Colors.White
             
             //The background color of the button of the highlighted tabs.
-            static let HighlightedBackgroundColor = UIColor.green
+            static let HighlightedBackgroundColor = Stylesheet.Colors.MainOrange
             
             //The background color of the tab bar
             static let ButtonsBackgroundColor = Stylesheet.Colors.White
-            //            static let ButtonsBackgroundColor = Stylesheet.Colors.Blue
             
             //The color of the selection indicator.
-            static let SelectionIndicatorColor = Stylesheet.Colors.LightBlue
+            static let SelectionIndicatorColor = Stylesheet.Colors.MainOrange
             
             // change the seperator line color
             static let SeparatorLineColor = Stylesheet.Colors.LightGray
