@@ -22,6 +22,7 @@ class LoginView: UIView {
         tv.placeholder = "@ @ @ @"
         tv.font = UIFont(name: Stylesheet.Fonts.Bold, size: 30)
         tv.textAlignment = .center
+        tv.isEnabled = false
         return tv
     }()
     
