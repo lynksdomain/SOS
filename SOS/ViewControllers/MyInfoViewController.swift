@@ -19,6 +19,8 @@ class MyInfoViewController: UIViewController {
         navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         myInfoView.tableView.delegate = self
         myInfoView.tableView.dataSource = self
+        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
+ 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         myInfoView.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: "NotesCell")
@@ -204,12 +206,15 @@ extension MyInfoViewController {
             textField.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
             textField.borderStyle = .roundedRect
             textField.textAlignment = .right
+            textField.textColor = Stylesheet.Colors.MainOrange
+            
         case 0:
             textField.isEnabled = false
             textField.backgroundColor = Stylesheet.Colors.White
             textField.layer.borderWidth = 0.0
             textField.borderStyle = .none
             textField.textAlignment = .right
+            textField.textColor = Stylesheet.Colors.Black
         default:
             break
         }
@@ -220,9 +225,11 @@ extension MyInfoViewController {
         case 1:
             notes.isEditable = true
             notes.backgroundColor = .lightText
+            notes.textColor = Stylesheet.Colors.MainOrange
         case 0:
             notes.isEditable = false
             notes.backgroundColor = Stylesheet.Colors.White
+            notes.textColor = Stylesheet.Colors.Black
         default:
             break
         }

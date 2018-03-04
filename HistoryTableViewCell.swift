@@ -25,6 +25,7 @@ class HistoryTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpView()
+        self.answertf.keyboardType = .numbersAndPunctuation
     }
     
     required init?(coder aDecoder: NSCoder) {

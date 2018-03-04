@@ -30,6 +30,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "ForumQuestionCell")
         setupViews()
+        self.selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {
