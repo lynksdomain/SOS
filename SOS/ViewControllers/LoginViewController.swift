@@ -42,7 +42,6 @@ class LoginViewController: UIViewController {
         prepareContentView()
         contentView.feedCollectionView.delegate = self
         contentView.feedCollectionView.dataSource = self
-        contentView.passwordView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,21 +110,6 @@ extension LoginViewController: UICollectionViewDataSource {
         cell.backgroundColor = .blue
         cell.numberLabel.text = enumModel[indexPath.row].rawValue
         return cell
-    }
-    
-}
-
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else { return false }
-        if text.count >= 4 {
-            return false
-        }
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        print("hi")
     }
     
 }

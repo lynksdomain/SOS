@@ -20,7 +20,6 @@ class ResultView: UIView {
         tv.allowsSelection = true
         return tv
     }()
-    
     lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     
     // GETTING DATA FROM API
     var model = TestSiteDataManager()
-    func getData() {
+    private func getData() {
         let endpoint = "https://data.cityofnewyork.us/resource/fqke-ix7c.json?$where=address!%3D%22%22&$limit=20"
         model.APIClient.getTestSites(from: endpoint, completionHandler: { [weak self] (sites) in
             self?.model.setTestSites(sites)
@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
 
     let searchView = SearchView()
     var currentLocation = CLLocation()
+    
     private var annotations = [MKAnnotation](){
         didSet{
             DispatchQueue.main.async {
@@ -32,6 +33,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
     var testSites = [TestSite](){
         didSet{
             for site in testSites{
