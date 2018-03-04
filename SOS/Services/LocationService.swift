@@ -115,7 +115,7 @@ extension LocationService {
                     print(error)
                 }
                 guard let place = placeMarks?.first else{
-                    print("DEV: error getting places from the CLLocation")
+                    print("DEV: error getting name from the CLLocation")
                     return
                 }
                 // to get the city name use this
@@ -136,7 +136,7 @@ extension LocationService {
                 errorHandler(error)
             }
             guard let place = placeMarks?.first else{
-                print("DEV: error getting places from the CLLocation")
+                print("DEV: error getting coordinate from the CLLocation")
                 return
             }
             completion(place.location!)

@@ -16,6 +16,7 @@ class MyInfoViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(myInfoView)
         view.backgroundColor = Stylesheet.Colors.White
+        navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         myInfoView.tableView.delegate = self
         myInfoView.tableView.dataSource = self
         self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
