@@ -37,7 +37,7 @@ class SearchView: UIView {
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = Stylesheet.Colors.LightPink
+        collectionView.backgroundColor = Stylesheet.Colors.White
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCell")
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
@@ -62,7 +62,7 @@ class SearchView: UIView {
             make.top.equalTo(snp.top)
             make.left.equalTo(snp.left)
             make.right.equalTo(snp.right)
-            make.height.equalTo(snp.height).dividedBy(8)
+            make.height.equalTo(snp.height).dividedBy(10)
         }
     }
     func setupMapView(){

@@ -13,10 +13,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Category"
-        label.backgroundColor = Stylesheet.Colors.LightPink
+        label.backgroundColor = Stylesheet.Colors.MainYellow
         label.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
         label.layer.borderWidth = 2.0
         label.layer.cornerRadius = 5.0
+        label.clipsToBounds = true
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         label.numberOfLines = 1

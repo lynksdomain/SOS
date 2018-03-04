@@ -33,7 +33,7 @@ class ResultView: UIView {
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = Stylesheet.Colors.LightPink
+        collectionView.backgroundColor = Stylesheet.Colors.White
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "CategoryCell")
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView

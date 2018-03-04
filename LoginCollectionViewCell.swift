@@ -12,7 +12,7 @@ import SnapKit
 class LoginCollectionViewCell: UICollectionViewCell {
     lazy var numberLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = Stylesheet.Colors.LightPink
+        label.backgroundColor = Stylesheet.Colors.MainYellow
         label.textAlignment = .center
         label.font = UIFont(name: Stylesheet.Fonts.Bold, size: 28)
         return label

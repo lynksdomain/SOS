@@ -39,7 +39,7 @@ class LoginView: UIView {
         layout.sectionInset = UIEdgeInsetsMake(cellSpacing, cellSpacing , cellSpacing, cellSpacing )
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
-        collectionView.backgroundColor = Stylesheet.Colors.LightPink
+        collectionView.backgroundColor = Stylesheet.Colors.MainYellow
         collectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: "feedCell")
         return collectionView
     }()

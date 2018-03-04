@@ -57,27 +57,30 @@ class SearchViewController: UIViewController {
                 
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
                     
-                    if self.searchView.mapView.isUserLocationVisible == true{
-                        if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
-                            annotation.coordinate = location.coordinate
-                            annotation.title = site.siteName
-                            self.annotations.append(annotation)
-                            self.annotatedSites.append(site)
-                            self.annotatedCoordinates.append(location)
-                        }
-                    }else{
-                        if self.currentLocation.distance(from: location) <= 8046.72{
-                            annotation.coordinate = location.coordinate
-                            annotation.title = site.siteName
-                            self.annotations.append(annotation)
-                        }
+                    if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
+                        annotation.coordinate = location.coordinate
+                        annotation.title = site.siteName
+                        self.annotations.append(annotation)
+                        self.annotatedSites.append(site)
+                        self.annotatedCoordinates.append(location)
                     }
+//                    if self.searchView.mapView.isUserLocationVisible == true{
+//
+//                    }else{
+//                        if self.currentLocation.distance(from: location) <= 8046.72{
+//                            annotation.coordinate = location.coordinate
+//                            annotation.title = site.siteName
+//                            self.annotations.append(annotation)
+//                        }
+//                    }
                     
                     
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
             }
+            print(filterModel.selectedCategory)
+            print("annotations:", annotations)
             
         }
     }
@@ -86,6 +89,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(searchView)
+        view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         self.searchView.siteSearchBar.delegate = self
         searchView.snp.makeConstraints { (constraint) in
             constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
@@ -126,8 +131,6 @@ class SearchViewController: UIViewController {
         self.searchView.mapView.setRegion(region, animated: true)
         
     }
-    
-    
     
     @objc func listNavBarButtonItemAction(){
         //seque to results view controller

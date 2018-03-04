@@ -89,7 +89,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = Stylesheet.Colors.LightPink
+        navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         navigationItem.title = "Results"
         contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
