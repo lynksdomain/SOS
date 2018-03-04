@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class SearchViewController: UIViewController {
-
+    var currentSelectedSite: TestSite?
     let searchView = SearchView()
     var currentLocation = CLLocation()
     private var annotations = [MKAnnotation](){
@@ -21,26 +21,42 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    var annotatedSites = [TestSite]()
+    
+    
     var testSites = [TestSite](){
         didSet{
+            annotatedSites = []
             for site in testSites{
+               
                 let annotation = MKPointAnnotation()
                 let address = "\(site.address!) \(site.zipCode!)"
+               
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
-                    if self.currentLocation.distance(from: location) <= 8046.72{
-                    annotation.coordinate = location.coordinate
-                    annotation.title = site.siteName
-                    self.annotations.append(annotation)
+                    
+                    if self.searchView.mapView.isUserLocationVisible == true{
+                        if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
+                            annotation.coordinate = location.coordinate
+                            annotation.title = site.siteName
+                            self.annotations.append(annotation)
+                            self.annotatedSites.append(site)
+                        }
+                    }else{
+                        if self.currentLocation.distance(from: location) <= 8046.72{
+                            annotation.coordinate = location.coordinate
+                            annotation.title = site.siteName
+                            self.annotations.append(annotation)
+                            self.annotatedSites.append(site)
+                        }
                     }
+                    
+                    
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
             }
-//            DispatchQueue.main.async {
-//                self.searchView.mapView.addAnnotations(self.annotations)
-//                self.searchView.mapView.showAnnotations(self.annotations, animated: true)
-//
-//            }
+
         }
     }
     
@@ -53,6 +69,20 @@ class SearchViewController: UIViewController {
             constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
         configureNavBar()
+        let authorizationStatus = LocationService.manager.checkForLocationServices()
+        authorizationHandling(inputAuthization: authorizationStatus)
+        LocationService.manager.delegate = self
+        self.searchView.mapView.delegate = self
+    }
+    
+    
+    
+    func authorizationHandling(inputAuthization: CLAuthorizationStatus) {
+        if inputAuthization == .authorizedWhenInUse || inputAuthization == .authorizedAlways {
+            let currentCLLocation = CLLocation(latitude: UserPreference.manager.getLatitude(), longitude: UserPreference.manager.getLongitude())
+            configureMapRegion(from: currentCLLocation)
+            self.searchView.mapView.showsUserLocation = true
+        }
     }
 
     func configureNavBar(){
@@ -84,12 +114,25 @@ extension SearchViewController: UISearchBarDelegate{
             guard let cityName = searchBar.text, searchBar.text != " " else {
                 return
             }
-            // this will move the map to a a valid city if not the alert will kick in and notify the user for the error
+        print("THISISTHEONEEEEEE" + cityName)
         LocationService.manager.getCityCordinateFromCityName(inputCityName: cityName, completion: {
                    self.currentLocation = $0
-//                   self.configureMapRegion(from: self.currentLocation)
             TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
-                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil}
+                self.searchView.mapView.removeAnnotations(self.annotations)
+                self.annotations.removeAll()
+                self.searchView.mapView.showsUserLocation = false
+                var lowerBoro: Borough?
+                var upperBoro: Borough?
+                switch searchBar.text!{
+                case "11361", "11362", "11363", "11364","11354", "11355", "11356", "11357", "11358", "11359", "11360","11365", "11366", "11367", "11412", "11423", "11432", "11433", "11434", "11435", "11436", "11101", "11102", "11103", "11104", "11105", "11106", "11374", "11375", "11379", "11385", "11691", "11692", "11693", "11694", "11695", "11697", "11004", "11005", "11411", "11413", "11422", "11426", "11427", "11428", "11429", "11414", "11415", "11416", "11417", "11418", "11419", "11420", "11421", "11368", "11369", "11370", "11372", "11373", "11377", "11378" :
+                    lowerBoro = Borough.queens
+                    upperBoro = Borough.purpleQueens
+                default:
+                    print("I hate life")
+                    
+                }
+                var addressSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil && $0.borough != nil}
+                self.testSites = addressSites.filter{$0.borough == lowerBoro || $0.borough == upperBoro}
             }, errorHandler: { (testSiteError) in
                 print("getting the tests messed up: " + testSiteError.localizedDescription)
             })
@@ -126,6 +169,11 @@ extension SearchViewController: UISearchBarDelegate{
 //    }
 }
 
+
+
+
+
+
 extension SearchViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -146,16 +194,35 @@ extension SearchViewController: MKMapViewDelegate{
         }
         return annotationView
     }
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        // find place selected
-//
-//        let index = annotations.index{$0 === view.annotation}
-//        guard let annotationIndex = index else { print("index is nil"); return }
-//        let site = testSites[annotationIndex]
-//        currentSelectedSite = site
-//    }
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        let detailVC = VenueDetailedViewController(venue: currentSelectedVenue)
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // find place selected
+
+        let index = annotations.index{$0 === view.annotation}
+        guard let annotationIndex = index else { print("index is nil"); return }
+        let site = testSites[annotationIndex]
+        currentSelectedSite = site
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print(currentSelectedSite?.siteName)
+    }
+
+}
+
+
+
+extension SearchViewController: LocationDelegate{
+    func userDeniedLocation() {
+     
+        
+    }
+    
+    func userAllowedLocation(with location: CLLocation) {
+        configureMapRegion(from: location)
+        TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
+            self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil}
+        }, errorHandler: { (testSiteError) in
+            print("getting the tests messed up: " + testSiteError.localizedDescription)
+        })
+        self.searchView.mapView.showsUserLocation = true
+}
 }

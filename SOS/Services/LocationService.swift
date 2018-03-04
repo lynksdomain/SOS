@@ -160,22 +160,3 @@ extension LocationService {
 
 
 
-
-extension SearchViewController: LocationDelegate{
-    func userDeniedLocation() {
-//        LocationService.manager.getCityCordinateFromCityName(inputCityName: "New York City", completion: { (location) in
-//            self.configureMapRegion(from: location)
-//            VenueAFireAPIClient.manager.getVenues(searchTerm: "Coffee", location: location, completionHandler: {self.venues = $0
-//            }, errorHandler: {print($0)})
-//        }, errorHandler: {_ in print("error")})
-        
-        
-    }
-    
-    func userAllowedLocation(with location: CLLocation) {
-        configureMapRegion(from: location)
-//        self.searchView.mapView.showsUserLocation = true
-    }
-}
-
-
