@@ -24,7 +24,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
         let lb = UILabel()
         lb.text = " "
         lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 15.0)
-        lb.numberOfLines = 0
+        lb.numberOfLines = 1
         return lb
     }()
 
