@@ -14,7 +14,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
     lazy var questionLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 15.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
         lb.numberOfLines = 0
         return lb
     }()
@@ -22,7 +22,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
     lazy var answerLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 15.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 18.0)
         lb.numberOfLines = 1
         return lb
     }()

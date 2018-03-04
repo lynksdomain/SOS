@@ -27,13 +27,14 @@ class QuestionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Stylesheet.Colors.White
         setupQuestionDetailView()
         configureViews()
         configureNavBar()
     }
     private func configureViews() {
         self.questionView.questionLabel.text = self.question?.question
-        self.questionView.answerLabel.text = self.question?.answer
+        self.questionView.answerTextview.text = self.question?.answer
     }
     
     private func configureNavBar() {

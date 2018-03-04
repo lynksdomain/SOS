@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import TableFlip
 
 class SiteDetailViewController: UIViewController {
     
@@ -14,6 +16,9 @@ class SiteDetailViewController: UIViewController {
     var site: TestSite!
     var sections: [[String]]!
     var titles: [[String]]!
+    var location: CLLocation!
+   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +27,10 @@ class SiteDetailViewController: UIViewController {
         dump(site.location)
     }
 
-    convenience init(site: TestSite) {
+    convenience init(site: TestSite, location: CLLocation) {
         self.init()
         self.site = site
+        self.location = location
         sections = [site.siteInfo, site.location, site.contact, site.hours, site.cost]
         titles = [site.siteInfoTitles, site.locationTitles, site.contactTitles, site.hoursTitles, site.costTitles]
     }
@@ -34,6 +40,7 @@ class SiteDetailViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(view.snp.edges)
         }
+
     }
     
     private func prepareDelegates() {
@@ -79,8 +86,37 @@ extension SiteDetailViewController: UITableViewDataSource {
         
         let data = sections[indexPath.section][indexPath.row]
         let title = titles[indexPath.section][indexPath.row]
+        if indexPath.section == 1{
+            if indexPath.row == 0{
+                cell.textLabel?.textColor = UIColor.blue
+            }
+        }
         cell.textLabel?.text = title + "  :  " + data
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row{
+            case 0:
+                guard UserPreference.manager.getLongitude() != 0, UserPreference.manager.getLatitude() != 0 else {
+                    return
+                }
+                let userCoordinate = CLLocationCoordinate2DMake(UserPreference.manager.getLatitude(), UserPreference.manager.getLongitude())
+                let placeCoordinate = location.coordinate
+                
+                let directionsURLString = "http://maps.apple.com/?saddr=\(userCoordinate.latitude),\(userCoordinate.longitude)&daddr=\(placeCoordinate.latitude),\(placeCoordinate.longitude)"
+                UIApplication.shared.open(URL(string: directionsURLString)!, options: [:]) { (done) in
+                    print("launched apple maps")
+                }
+            default:
+                print("these are not the rows you're looking for")
+            }
+        default:
+            print("these are not the sections you're looking for")
+        }
     }
     
     

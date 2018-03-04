@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     
     var currentSelectedSite: TestSite?
     let filterModel = FilteringModel()
+    var currentSelectedLocation: CLLocation?
     
     // GETTING DATA FROM API
     var model = TestSiteDataManager()
@@ -46,6 +47,7 @@ class SearchViewController: UIViewController {
     
     
     var annotatedSites = [TestSite]()
+    var annotatedCoordinates = [CLLocation]()
     var testSites = [TestSite](){
         didSet{
             for site in testSites{
@@ -61,6 +63,7 @@ class SearchViewController: UIViewController {
                             annotation.title = site.siteName
                             self.annotations.append(annotation)
                             self.annotatedSites.append(site)
+                            self.annotatedCoordinates.append(location)
                         }
                     }else{
                         if self.currentLocation.distance(from: location) <= 8046.72{
@@ -226,9 +229,11 @@ extension SearchViewController: MKMapViewDelegate{
         guard let annotationIndex = index else { print("index is nil"); return }
         let site = annotatedSites[annotationIndex]
         currentSelectedSite = site
+        currentSelectedLocation = annotatedCoordinates[annotationIndex]
     }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print(currentSelectedSite?.siteName)
+        let vc  = SiteDetailViewController(site: currentSelectedSite!, location: currentSelectedLocation!)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
