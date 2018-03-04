@@ -74,8 +74,8 @@ enum Borough: String, Codable {
 }
 
 enum Free: String, Codable {
-    case purpleFALSE = "FALSE"
-    case purpleTRUE = "TRUE"
+    case no = "FALSE"
+    case yes = "TRUE"
 }
 
 enum GendersServed: String, Codable {

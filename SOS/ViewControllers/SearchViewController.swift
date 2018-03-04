@@ -10,6 +10,17 @@ import UIKit
 import MapKit
 
 class SearchViewController: UIViewController {
+    
+    // GETTING DATA FROM API
+    var model = TestSiteDataManager()
+    func getData() {
+        let endpoint = "https://data.cityofnewyork.us/resource/fqke-ix7c.json?$where=address!%3D%22%22&$limit=20"
+        model.APIClient.getTestSites(from: endpoint, completionHandler: { [weak self] (sites) in
+            self?.model.setTestSites(sites)
+        }) { (error) in
+            print(error)
+        }
+    }
 
     let searchView = SearchView()
     var currentLocation = CLLocation()
@@ -27,10 +38,11 @@ class SearchViewController: UIViewController {
                 let annotation = MKPointAnnotation()
                 let address = "\(site.address!) \(site.zipCode!)"
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
-
+                    if self.currentLocation.distance(from: location) <= 8046.72{
                     annotation.coordinate = location.coordinate
                     annotation.title = site.siteName
                     self.annotations.append(annotation)
+                    }
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
@@ -52,6 +64,7 @@ class SearchViewController: UIViewController {
             constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
         configureNavBar()
+        getData()
     }
 
     func configureNavBar(){
@@ -73,6 +86,7 @@ class SearchViewController: UIViewController {
     @objc func listNavBarButtonItemAction(){
         //seque to results view controller
         print("it works!")
+        self.navigationController?.pushViewController(ResultViewController(sites: model.getTestSites()), animated: true)
 }
     
 }
@@ -88,7 +102,7 @@ extension SearchViewController: UISearchBarDelegate{
                    self.currentLocation = $0
 //                   self.configureMapRegion(from: self.currentLocation)
             TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
-                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode == searchBar.text}
+                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil}
             }, errorHandler: { (testSiteError) in
                 print("getting the tests messed up: " + testSiteError.localizedDescription)
             })

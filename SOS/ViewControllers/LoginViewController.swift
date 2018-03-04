@@ -21,8 +21,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    let pinLength = 5
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
@@ -32,6 +30,10 @@ class LoginViewController: UIViewController {
         contentView.passwordView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = .orange
+    }
+    
     private func prepareContentView() {
         view.addSubview(contentView)
         contentView.snp.makeConstraints { make in
@@ -39,14 +41,19 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func validatePassword() {
+    private func validatePassword() {
         if password == correctPassword {
             present(TabBarVC(), animated: true, completion: nil)
-            contentView.passwordView.text?.removeAll()
-            password = ""
+            view.backgroundColor = .green
         } else {
             Alert.present(from: .wrongPassword)
         }
+        clearPasswordField()
+    }
+    
+    private func clearPasswordField() {
+        contentView.passwordView.text?.removeAll()
+        password = ""
     }
     
 }
@@ -102,7 +109,7 @@ extension LoginViewController: UICollectionViewDataSource {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { return false }
-        if text.count >= pinLength {
+        if text.count >= 4 {
             return false
         }
         return true
@@ -111,5 +118,5 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         print("hi")
     }
-
+    
 }

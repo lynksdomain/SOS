@@ -14,6 +14,7 @@ class LoginCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.backgroundColor = Stylesheet.Colors.LightPink
         label.textAlignment = .center
+        label.font = UIFont(name: Stylesheet.Fonts.Bold, size: 28)
         return label
     }()
     
