@@ -28,6 +28,7 @@ class QuestionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Stylesheet.Colors.White
+        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         setupQuestionDetailView()
         configureViews()
         configureNavBar()

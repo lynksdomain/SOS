@@ -20,6 +20,7 @@ class NotesTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpView()
+        self.notesTextView.keyboardType = .asciiCapable
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -44,7 +44,7 @@ class ForumViewController: UIViewController {
                 categoriesDict[ques.category]?.append(ques)
             }
         }
-        
+        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
         forumView.tableView.dataSource = self

@@ -24,6 +24,7 @@ class ProfileCells: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpView()
+        self.answertf.keyboardType = .asciiCapable
     }
     
     required init?(coder aDecoder: NSCoder) {
