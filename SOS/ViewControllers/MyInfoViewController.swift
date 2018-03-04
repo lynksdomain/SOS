@@ -27,7 +27,13 @@ class MyInfoViewController: UIViewController {
         myInfoView.tableView.register(ProfileCells.self, forCellReuseIdentifier: "ProfileCell")
         myInfoView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryCell")
         myInfoView.tableView.allowsSelection = false
-
+        configureNavBar()
+    }
+    
+    private func configureNavBar() {
+        navigationItem.title = "My Info"
+        let textAttributes = [NSAttributedStringKey.foregroundColor: Stylesheet.Colors.MainOrange]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     @objc private func editButton() {
@@ -202,9 +208,10 @@ extension MyInfoViewController {
         case 1:
             textField.isEnabled = true
             textField.backgroundColor = .lightText
-            textField.layer.borderWidth = 0.5
-            textField.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
             textField.borderStyle = .roundedRect
+            textField.layer.borderColor = Stylesheet.Colors.MainOrange.cgColor
+            textField.layer.borderWidth = 0.5
+            textField.layer.cornerRadius = 5.0
             textField.textAlignment = .right
             textField.textColor = Stylesheet.Colors.MainOrange
             

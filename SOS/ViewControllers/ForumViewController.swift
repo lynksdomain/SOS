@@ -56,6 +56,8 @@ class ForumViewController: UIViewController {
 
     private func configureNavBar() {
         navigationItem.title = "F.A.Q."
+        let textAttributes = [NSAttributedStringKey.foregroundColor: Stylesheet.Colors.MainOrange]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 
 }
