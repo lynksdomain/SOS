@@ -29,6 +29,92 @@ struct TestSite: Codable {
     let additionalInformation, agesServed, requiredDocuments, briefDescription: String?
     let siteLanguages: String?
     
+    
+    
+    var siteInfo: [String] {
+        return [agencyID, siteName]
+    }
+    
+    var siteInfoTitles: [String] {
+        return ["Agency ID", "Site Name"]
+    }
+    
+    var siteDict: [String: String?] {
+        return ["Agency ID": agencyID,
+                "Site Name": siteName]
+    }
+    
+    var location: [String] {
+        return [address, borough?.rawValue.uppercased(), buildingFloorSuite, city, zipCode].flatMap({$0})
+    }
+    
+    var locationTitles: [String] {
+        return ["Address", "Borough", "Floor", "City", "ZipCode"]
+    }
+    
+    var locationDict: [String: String?] {
+        return ["Address": address,
+                "Borough": borough?.rawValue.uppercased(),
+                "Floor": buildingFloorSuite,
+                "City": city,
+                "ZipCode": zipCode]
+    }
+    
+    var contact: [String] {
+        return [phoneNumber, website].flatMap({$0})
+    }
+    
+    var contactTitles: [String] {
+        return ["Phone Number", "Website"]
+    }
+    
+    
+    var hours: [String] {
+        return [hoursMonday, hoursTuesday, hoursWednesday, hoursThursday, hoursFriday, hoursSaturday, hoursSunday].flatMap({$0})
+    }
+    
+    var hoursTitles: [String] {
+        return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    }
+    var contactDict: [String: String?] {
+        return ["Phone Number": phoneNumber,
+                "Website": website]
+    }
+    
+    var hoursDict: [String: String?] {
+        return ["Monday": hoursMonday,
+                "Tuesday": hoursTuesday,
+                "Wednesday": hoursWednesday,
+                "Thursday": hoursThursday,
+                "Friday": hoursFriday,
+                "Saturday": hoursSaturday,
+                "Sunday": hoursSunday]
+    }
+    
+    var cost: [String] {
+        return [free.rawValue, medicaid?.rawValue, medicare?.rawValue, slidingFee?.rawValue, otherInsurances?.rawValue].flatMap({$0})
+    }
+    
+    var costTitles: [String] {
+        return ["Free", "Medicaid", "Medicare", "Sliding Fee", "Other Insurances"]
+    }
+    
+    var costDict: [String: String?] {
+        return ["Free": free.rawValue,
+                "Medicaid": medicaid?.rawValue,
+                "Medicare": medicare?.rawValue,
+                "Sliding Fee": slidingFee?.rawValue,
+                "Other Insurances": otherInsurances?.rawValue]
+    }
+    
+    var detailDict: [String: [String: String?]] {
+        return ["info": siteDict,
+                "location": locationDict,
+                "contact": contactDict,
+                "hours": hoursDict,
+                "cost": costDict]
+    }
+    
     enum CodingKeys: String, CodingKey {
         case address
         case agencyID = "agency_id"

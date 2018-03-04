@@ -46,9 +46,10 @@
 		9311DCAA204B2A5F00B40B92 /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCA9204B2A5F00B40B92 /* ProfileCells.swift */; };
 		9311DCAC204B2A9800B40B92 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAB204B2A9800B40B92 /* HistoryTableViewCell.swift */; };
 		9311DCAE204B2AAF00B40B92 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAD204B2AAF00B40B92 /* NotesTableViewCell.swift */; };
-		C4015A0E204B682300098DAE /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4015A0D204B682300098DAE /* ResultView.swift */; };
-		C4278D52204B74CB00F717FB /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4278D51204B74CB00F717FB /* CategoryCollectionViewCell.swift */; };
 		9311DCB0204B5E9B00B40B92 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAF204B5E9B00B40B92 /* UserDefaultsHelper.swift */; };
+		C4015A0E204B682300098DAE /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4015A0D204B682300098DAE /* ResultView.swift */; };
+		C4147ED9204B933B00E3DE4D /* SiteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4147ED8204B933B00E3DE4D /* SiteDetailView.swift */; };
+		C4278D52204B74CB00F717FB /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4278D51204B74CB00F717FB /* CategoryCollectionViewCell.swift */; };
 		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
 		C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */; };
 		C4C4F641204B3C9A0041C063 /* TestSiteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */; };
@@ -116,6 +117,7 @@
 		9311DCAF204B5E9B00B40B92 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		A0ABA4E01B52828A6CD2A199 /* Pods-SOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4015A0D204B682300098DAE /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		C4147ED8204B933B00E3DE4D /* SiteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailView.swift; sourceTree = "<group>"; };
 		C4278D51204B74CB00F717FB /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteAPIClient.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */,
 				C4C4F642204B5E5C0041C063 /* LoginView.swift */,
 				C4015A0D204B682300098DAE /* ResultView.swift */,
+				C4147ED8204B933B00E3DE4D /* SiteDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				81BE5B2B204B42D70077E5E2 /* UserPreference.swift in Sources */,
 				C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */,
 				81BE5AF4204B01910077E5E2 /* ResultViewController.swift in Sources */,
+				C4147ED9204B933B00E3DE4D /* SiteDetailView.swift in Sources */,
 				C4278D52204B74CB00F717FB /* CategoryCollectionViewCell.swift in Sources */,
 				81BE5B15204B08780077E5E2 /* Stylesheet.swift in Sources */,
 				81BE5B29204B31FD0077E5E2 /* LocationService.swift in Sources */,

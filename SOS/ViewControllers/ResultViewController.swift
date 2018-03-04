@@ -27,6 +27,7 @@ class ResultViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = Stylesheet.Colors.LightPink
         navigationItem.title = "Results"
+        contentView.tableView.delegate = self
         contentView.tableView.dataSource = self
         contentView.categoryCollectionView.delegate = self
         contentView.categoryCollectionView.dataSource = self
@@ -98,6 +99,21 @@ private extension ResultViewController {
     
 }
 
+// MARK: - Table View Delegate
+extension ResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dataSource: [TestSite]!
+        if selectedCategory.isEmpty {
+            dataSource = sites
+        } else {
+            dataSource = filteredSites
+        }
+        
+        let site = dataSource[indexPath.row]
+        navigationController?.pushViewController(SiteDetailViewController(site: site), animated: true)
+    }
+}
+
 // MARK: Table View Data Source
 extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,7 +139,6 @@ extension ResultViewController: UITableViewDataSource {
         return dataSource.count
     }
     
-    // MARK: - Cell Rendering
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var site: TestSite!
@@ -132,12 +147,13 @@ extension ResultViewController: UITableViewDataSource {
         } else {
             site = filteredSites[indexPath.row]
         }
-        cell.textLabel?.text = site.borough?.rawValue ?? "No borough?"
+        cell.textLabel?.text = site.agencyID
         return cell
     }
-    
+
 }
 
+// MARK: - Collection View Delegate
 extension ResultViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
@@ -147,6 +163,7 @@ extension ResultViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - Collection View DataSource
 extension ResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count

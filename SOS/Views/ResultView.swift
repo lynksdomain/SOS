@@ -17,7 +17,7 @@ class ResultView: UIView {
         tv.separatorStyle = .none
         tv.estimatedRowHeight = 100
         tv.rowHeight = UITableViewAutomaticDimension
-        tv.allowsSelection = false
+        tv.allowsSelection = true
         return tv
     }()
     
