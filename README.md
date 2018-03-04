@@ -14,6 +14,17 @@ Safe On Sex is an iOS app that connects NYC teenagers to nearby affordable HIV t
 |:-------------:|
 |<img src=https://storage.jumpshare.com/preview/G_gMH94SAD2ypkA9OVPC5hyZDphtrePE6Z6aw_HyjWHsROiuhipwrGgNBTVfXGI7yf5nBsAu2sRUPZG6a1sC4N0Iq-_ZMIwlJNqsu6s4bO0F1kR3dMUjedqC16uBUu85>|
 
+
+|Navigate To Clinic|
+|:-------------:|
+|<img src=https://storage.jumpshare.com/preview/HLBs5kYavewizWOEeEzhdvbgao3QwLJJqkcEMzSy4FXMGMR1RSEYjOs2l6L0-dzcDuvzOPeqiGpnMR-1wkLQmFNlSmh0egFbdyHzE6LvoMAI4av1wcwKsmUDuTGzHRrg>|
+
+
+|Track Information|
+|:-------------:|
+|<img src=https://storage.jumpshare.com/preview/bkXH42le5EN-gPgALJ9b4x-w9LJOMVLW9SeZzkvGIqxtWJDm8djrcUkSmn2VF94epjx72iMPM7Udslk_3BQ4BVNlSmh0egFbdyHzE6LvoMAI4av1wcwKsmUDuTGzHRrg>|
+
+
 ## Features
 Users can: 
 - Search for nearby HIV testing centers
