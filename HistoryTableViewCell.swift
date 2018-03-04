@@ -20,6 +20,7 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var answertf: UITextField = {
         let tf = UITextField()
         tf.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
+        tf.borderStyle = .none
         return tf
     }()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

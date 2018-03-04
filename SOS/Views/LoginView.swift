@@ -73,14 +73,14 @@ class LoginView: UIView {
             make.top.equalTo(passwordView.snp.bottom).offset(30)
             make.centerX.equalTo(snp.centerX)
             make.size.equalTo(snp.width).multipliedBy(0.2)
-            make.bottom.equalTo(feedCollectionView.snp.top).offset(-30)
+            make.bottom.equalTo(feedCollectionView.snp.top).offset(-10)
         }
     }
     
     private func prepareCallToActionLabel() {
         self.addSubview(callToActionLabel)
         callToActionLabel.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(50)
+            make.top.equalTo(snp.top).offset(40)
             make.centerX.equalTo(snp.centerX)
             make.width.equalTo(snp.width).multipliedBy(0.8)
             make.height.equalTo(snp.height).dividedBy(8)
