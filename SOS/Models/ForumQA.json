@@ -1,8 +1,13 @@
 [
  {
+ "question": "I'm 16, how often should I be test for STDs or HIV?",
+ "answer": "Sexually active people under 25 years old should be screened at least once a year for syphilis, chlamydia, and gonorrhea. Those with multiple partners should be screened more frequently for STDs (e.g. at 3-to-6 month intervals)",
+ "category": "STD and HIV Testing"
+ },
+ {
  "question": "Should I wear a condom every time I have sex with my boyfriend?",
  "answer": "Sexually transmitted diseases can be spread through vaginal, oral, and anal sex, so it's always important to wear a condom during every sexual encounter in order to protect yourself from contracting an STD.",
- "category": "Safe Sex"
+ "category": "Safer Sex Habits"
  },
  {
  "question": "I'm a guy. What are my options for birth control?",
@@ -10,23 +15,38 @@
  "category": "Preventing Pregnancy"
  },
  {
- "question": "I'm 16, how often should I be test for STDs or HIV?",
- "answer": "Sexually active people under 25 years old should be screened at least once a year for syphilis, chlamydia, and gonorrhea. Those with multiple partners should be screened more frequently for STDs (e.g. at 3-to-6 month intervals)",
- "category": "STD/HIV Testing"
- },
- {
  "question": "Can I get pregnant when I'm on my period?",
  "answer": "The monthly release of an egg from the ovaries isn’t always regular. Sometimes you can ovulate even during your period. And if you don’t use birth control, you could get pregnant.",
  "category": "Preventing Pregnancy"
  },
  {
- "question": "Can I get pregnant from anal sex?",
- "answer": "Pregnancy from anal sex is unlikel",
+ "question": "I'm under 18 years old, can I go to a clinic alone?",
+ "answer": "Yes! In New York City you can get all of the following on your own: condoms, birth control, emergency contraception (morning-after pill), GYN exam, pregnancy test, abortion, prenatal care, sexual assault services, STI tests and treatment, and HIV tests",
+ "category": "Health Care Services"
+ },
+ {
+ "question": "Does having an STD put me more at risk for getting HIV?",
+ "answer": "If you get an STD you are more likely to get HIV than someone who is STD-free. This is because the same behaviors and circumstances that may put you at risk for getting an STD can also put you at greater risk for getting HIV. In addition, having a sore or break in the skin from an STD may allow HIV to more easily enter your body. \n(https://www.cdc.gov/std/hiv/stdfact-std-hiv.htm)",
+ "category": "Safer Sex Habits"
+ },
+ {
+ "question": "What activities can put me at risk for both STDs and HIV?",
+ "answer": "Having anal, vaginal, or oral sex without a condom; \nHaving multiple sex partners; Having anonymous sex partners; \nHaving sex while under the influence of drugs or alcohol can lower inhibitions and result in greater sexual risk-taking. \n(https://www.cdc.gov/std/hiv/stdfact-std-hiv.htm)",
+ "category": "Safer Sex Habits"
+ },
+ {
+ "question": "What can I do to prevent getting STDs and HIV?",
+ "answer": "The only way to avoid STDs is to not have vaginal, anal, or oral sex. If you are sexually active, you can do the following things to lower your chances of getting STDs and HIV: \nChoose less risky sexual behaviors; \nUse condoms consistently and correctly; \nReduce the number of people with whom you have sex; \nLimit or eliminate drug and alcohol use before and during sex; \nHave an honest and open talk with your healthcare provider and ask whether you should be tested for STDs and HIV; \nTalk to your healthcare provider and find out if pre-exposure prophylaxis, or PrEP, is a good option for you to prevent HIV infection. \n(https://www.cdc.gov/std/hiv/stdfact-std-hiv.htm)",
+ "category": "Safer Sex Habits"
+ },
+ {
+ "question": "How do I use a condom?",
+ "answer": "To correctly put on a male condom, following these steps: \n1) Carefully open and remove condom from wrapper. \n2) Place condom on the head of the erect, hard penis. If uncircumcised, pull back the foreskin first. \n3) Pinch air out of the tip of the condom. \n4) Unroll condom all the way down the penis. \n5) After sex but before pulling out, hold the condom at the base. Then pull out, while holding the condom in place. \n6) Carefully remove the condom and throw it in the trash. \n(https://www.cdc.gov/condomeffectiveness/male-condom-use.html)",
  "category": "Preventing Pregnancy"
  },
  {
- "question": "I'm under 18 years old, can I go to a clinic alone?",
- "answer": "Yes! In New York City you can get all of the following on your own: condoms, birth control, emergency contraception (morning-after pill), GYN exam, pregnancy test, abortion, prenatal care, sexual assault services, STI tests and treatment, and HIV tests",
- "category": "Health Care"
+ "question": "Should I be tested for STDs or HIV?",
+ "answer": "All adults and adolescents from ages 13 to 64 should be tested at least once for HIV. \nAnnual chlamydia screening of all sexually active women younger than 25 years, as well as older women with risk factors such as new or multiple sex partners, or a sex partner who has a sexually transmitted infection. \nAnnual gonorrhea screening for all sexually active women younger than 25 years, as well as older women with risk factors such as new or multiple sex partners, or a sex partner who has a sexually transmitted infection.  \nSyphilis, HIV, and hepatitis B screening for all pregnant women, and chlamydia and gonorrhea screening for at-risk pregnant women starting early in pregnancy, with repeat testing as needed, to protect the health of mothers and their infants.  \nScreening at least once a year for syphilis, chlamydia, and gonorrhea for all sexually active gay, bisexual, and other men who have sex with men (MSM). MSM who have multiple or anonymous partners should be screened more frequently for STDs (e.g., at 3-to-6 month intervals).  \nSexually active gay and bisexual men may benefit from more frequent HIV testing (e.g., every 3 to 6 months).  \nAnyone who has unsafe sex or shares injection drug equipment should get tested for HIV at least once a year. \n(https://www.cdc.gov/std/prevention/screeningreccs.htm)",
+ "category": "STD and HIV Testing"
  }
  ]

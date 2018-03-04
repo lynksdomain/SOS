@@ -13,6 +13,7 @@ class NotesTableViewCell: UITableViewCell {
     
     lazy var notesTextView: UITextView = {
         let ntv = UITextView()
+        ntv.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18)
         return ntv
     }()
     

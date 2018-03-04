@@ -19,11 +19,7 @@ class ForumViewController: UIViewController {
         }
     }
     
-    var categoriesDict: [String:[ForumQuestion]] = [:] {
-        didSet {
-            print("category dictionary keys: \(categoriesDict.keys.count)")
-        }
-    }
+    var categoriesDict: [String:[ForumQuestion]] = [:]
     
     var categories: [String] = [] {
         didSet {
@@ -66,6 +62,13 @@ class ForumViewController: UIViewController {
 
 
 extension ForumViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = Stylesheet.Colors.MainYellow
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.black
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return categoriesDict.count

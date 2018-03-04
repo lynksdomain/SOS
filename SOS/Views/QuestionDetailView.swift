@@ -13,18 +13,20 @@ class QuestionDetailView: UIView {
     lazy var questionLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 20.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
         lb.numberOfLines = 0
         return lb
     }()
     
     //usernameLabel - for user name
-    lazy var answerLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 20.0)
-        lb.numberOfLines = 0
-        return lb
+    lazy var answerTextview: UITextView = {
+        let tv = UITextView()
+        tv.text = " "
+        tv.dataDetectorTypes = UIDataDetectorTypes.link
+        tv.font = UIFont(name: Stylesheet.Fonts.Thin, size: 18.0)
+        tv.isEditable = false
+      
+        return tv
     }()
 
     
@@ -47,7 +49,7 @@ class QuestionDetailView: UIView {
     
     private func setupViews() {
         self.addSubview(questionLabel)
-        self.addSubview(answerLabel)
+        self.addSubview(answerTextview)
         setupConstraints()
     }
     
@@ -60,11 +62,11 @@ class QuestionDetailView: UIView {
         }
         
         
-        answerLabel.snp.makeConstraints { (make) in
+        answerTextview.snp.makeConstraints { (make) in
             make.top.equalTo(questionLabel.snp.bottom).offset(20)
             make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(20)
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
-//            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
         }
     }
 }
