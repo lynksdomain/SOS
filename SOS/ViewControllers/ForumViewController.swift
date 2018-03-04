@@ -120,6 +120,7 @@ extension ForumViewController: UITableViewDataSource {
 }
 
 
+
 extension ForumViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -147,4 +148,5 @@ extension ForumViewController: UITableViewDelegate {
     
     
 }
+
 

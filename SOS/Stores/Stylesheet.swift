@@ -61,7 +61,7 @@ enum Stylesheet {
             static let ButtonsBackgroundColor = Stylesheet.Colors.White
             
             //The color of the selection indicator.
-            static let SelectionIndicatorColor = Stylesheet.Colors.LightPink
+            static let SelectionIndicatorColor = Stylesheet.Colors.MainOrange
             
             // change the seperator line color
             static let SeparatorLineColor = Stylesheet.Colors.LightGray
