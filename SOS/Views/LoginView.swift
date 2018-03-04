@@ -26,6 +26,17 @@ class LoginView: UIView {
         return tv
     }()
     
+    lazy var touchIDImageView: UIButton = {
+        let iv = UIButton()
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
+            //iPhone X
+            iv.setImage(#imageLiteral(resourceName: "faceid"), for: .normal)
+        } else {
+            iv.setImage(#imageLiteral(resourceName: "touchid"), for: .normal)
+        }
+        return iv
+    }()
+    
     lazy var feedCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -36,7 +47,7 @@ class LoginView: UIView {
         let numberOfCells: CGFloat = 3
         let numberOfSpaces: CGFloat = numberOfCells + 1
         layout.itemSize = CGSize(width: (screenWidth - (cellSpacing * numberOfSpaces)) / numberOfCells, height: screenHeight * 0.4)
-        layout.sectionInset = UIEdgeInsetsMake(cellSpacing, cellSpacing , cellSpacing, cellSpacing )
+       layout.sectionInset = UIEdgeInsetsMake(cellSpacing, cellSpacing , cellSpacing, cellSpacing )
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
         collectionView.backgroundColor = Stylesheet.Colors.MainYellow
@@ -53,6 +64,17 @@ class LoginView: UIView {
         prepareCallToActionLabel()
         preparePasswordView()
         prepareCollectionView()
+        prepareTouchIDImageView()
+    }
+    
+    private func prepareTouchIDImageView() {
+        self.addSubview(touchIDImageView)
+        touchIDImageView.snp.makeConstraints { make in
+            make.top.equalTo(passwordView.snp.bottom).offset(30)
+            make.centerX.equalTo(snp.centerX)
+            make.size.equalTo(snp.width).multipliedBy(0.2)
+            make.bottom.equalTo(feedCollectionView.snp.top).offset(-30)
+        }
     }
     
     private func prepareCallToActionLabel() {
