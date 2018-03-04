@@ -138,6 +138,7 @@ fastlane/test_output
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 .fseventsd
+SOS.xcworkspace
 
 # Thumbnails
 ._*
