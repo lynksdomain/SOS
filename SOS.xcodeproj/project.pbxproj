@@ -253,11 +253,8 @@
 				81BE5B22204B20C90077E5E2 /* MyInfoView.swift */,
 				81BE5B26204B239E0077E5E2 /* SearchView.swift */,
 				81496912204B22000080B15C /* ForumView.swift */,
-<<<<<<< HEAD
 				819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */,
-=======
 				C4C4F642204B5E5C0041C063 /* LoginView.swift */,
->>>>>>> 4b206094f51e1553d460d56e3ab1f2dc72a3699a
 			);
 			path = Views;
 			sourceTree = "<group>";
