@@ -33,7 +33,7 @@ class QuestionDetailViewController: UIViewController {
     }
     private func configureViews() {
         self.questionView.questionLabel.text = self.question?.question
-        self.questionView.answerLabel.text = self.question?.answer
+        self.questionView.answerTextview.text = self.question?.answer
     }
     
     private func configureNavBar() {

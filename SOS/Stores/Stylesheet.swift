@@ -21,6 +21,7 @@ enum Stylesheet {
         static let LightPink = UIColor(hex: "E1AEA5")
         static let MainOrange = UIColor(hex: "F38C2B")
         static let MainRed = UIColor(hex: "E72A34")
+        static let MainYellow = UIColor(hex: "FFE57F")
         // Colors borrowed from Tweetbot's dark color scheme
     }
     
@@ -49,7 +50,7 @@ enum Stylesheet {
             static let DefaultColor = Stylesheet.Colors.LightGray
             
             //the color of the icon when a menu is selected
-            static let SelectedColor =  Stylesheet.Colors.LightPink
+            static let SelectedColor =  Stylesheet.Colors.MainOrange
             
             //The color of the icon of a highlighted tab
             static let HighlightColor = Stylesheet.Colors.White
@@ -61,7 +62,7 @@ enum Stylesheet {
             static let ButtonsBackgroundColor = Stylesheet.Colors.White
             
             //The color of the selection indicator.
-            static let SelectionIndicatorColor = Stylesheet.Colors.LightPink
+            static let SelectionIndicatorColor = Stylesheet.Colors.MainOrange
             
             // change the seperator line color
             static let SeparatorLineColor = Stylesheet.Colors.LightGray
