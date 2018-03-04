@@ -16,6 +16,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = Stylesheet.Colors.LightPink
         label.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
         label.layer.borderWidth = 2.0
+        label.layer.cornerRadius = 5.0
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         label.numberOfLines = 1
@@ -42,21 +43,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    public override var bounds: CGRect {
-//        didSet {
-//            self.layoutIfNeeded()
-//        }
-//    }
-//
-//    public override func awakeFromNib() {
-//        super.awakeFromNib()
-//    }
-//
-//    public override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.setCircularImageView()
-//    }
     
     public func toggleColor() {
         switch categoryLabel.backgroundColor! {
