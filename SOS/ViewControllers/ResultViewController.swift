@@ -9,8 +9,12 @@
 import UIKit
 import SnapKit
 
-class ResultViewController: UIViewController {
-    let contentView = ResultView()
+protocol FilterDelegate {
+    func selectedCategoryChanged()
+}
+
+class FilteringModel {
+    var delegate: FilterDelegate!
     let categories = ["Free", "Walk-In", "Language", "Website"]
     var sites: [TestSite]!
     var filteredSites: [TestSite]!
@@ -18,37 +22,10 @@ class ResultViewController: UIViewController {
         didSet {
             let sitesWithFilters = sites!
             filteredSites = filterSites(sitesWithFilters)
-            contentView.tableView.reloadData()
+            delegate.selectedCategoryChanged()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = Stylesheet.Colors.LightPink
-        navigationItem.title = "Results"
-        contentView.tableView.delegate = self
-        contentView.tableView.dataSource = self
-        contentView.categoryCollectionView.delegate = self
-        contentView.categoryCollectionView.dataSource = self
-        prepareContentView()
-    }
     
-    convenience init(sites: [TestSite]) {
-        self.init()
-        self.sites = sites
-    }
-    
-    private func prepareContentView() {
-        view.addSubview(contentView)
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(view.snp.edges)
-        }
-    }
-
-}
-
-private extension ResultViewController {
     func saveCategory(_ category: String) {
         if !selectedCategory.contains(category) {
             selectedCategory.insert(category)
@@ -99,18 +76,55 @@ private extension ResultViewController {
     
 }
 
+class ResultViewController: UIViewController {
+    let contentView = ResultView()
+    let filterModel = FilteringModel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = Stylesheet.Colors.LightPink
+        navigationItem.title = "Results"
+        contentView.tableView.delegate = self
+        contentView.tableView.dataSource = self
+        contentView.categoryCollectionView.delegate = self
+        contentView.categoryCollectionView.dataSource = self
+        filterModel.delegate = self
+        prepareContentView()
+    }
+    
+    convenience init(sites: [TestSite]) {
+        self.init()
+        filterModel.sites = sites
+    }
+    
+    private func prepareContentView() {
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(view.snp.edges)
+        }
+    }
+
+}
+
+extension ResultViewController: FilterDelegate {
+    func selectedCategoryChanged() {
+        contentView.tableView.reloadData()
+    }
+}
+
 // MARK: - Table View Delegate
 extension ResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dataSource: [TestSite]!
-        if selectedCategory.isEmpty {
-            dataSource = sites
+        if filterModel.selectedCategory.isEmpty {
+            dataSource = filterModel.sites
         } else {
-            dataSource = filteredSites
+            dataSource = filterModel.filteredSites
         }
         
         let site = dataSource[indexPath.row]
-        navigationController?.pushViewController(SiteDetailViewController(site: site), animated: true)
+//        navigationController?.pushViewController(SiteDetailViewController(site: site), animated: true)
     }
 }
 
@@ -118,10 +132,10 @@ extension ResultViewController: UITableViewDelegate {
 extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let dataSource: [TestSite]!
-        if selectedCategory.isEmpty {
-            dataSource = sites
+        if filterModel.selectedCategory.isEmpty {
+            dataSource = filterModel.sites
         } else {
-            dataSource = filteredSites
+            dataSource = filterModel.filteredSites
         }
         
         if dataSource.isEmpty {
@@ -142,10 +156,10 @@ extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var site: TestSite!
-        if selectedCategory.isEmpty {
-            site = sites[indexPath.row]
+        if filterModel.selectedCategory.isEmpty {
+            site = filterModel.sites[indexPath.row]
         } else {
-            site = filteredSites[indexPath.row]
+            site = filterModel.filteredSites[indexPath.row]
         }
         cell.textLabel?.text = site.agencyID
         return cell
@@ -159,19 +173,19 @@ extension ResultViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
         let category = cell.categoryLabel.text!
         cell.toggleColor()
-        saveCategory(category)
+        filterModel.saveCategory(category)
     }
 }
 
 // MARK: - Collection View DataSource
 extension ResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return filterModel.categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = categories[indexPath.row]
+        let category = filterModel.categories[indexPath.row]
         cell.categoryLabel.text = category
         return cell
     }
