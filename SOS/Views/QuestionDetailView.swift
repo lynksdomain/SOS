@@ -13,7 +13,7 @@ class QuestionDetailView: UIView {
     lazy var questionLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 20.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
         lb.numberOfLines = 0
         return lb
     }()
@@ -23,7 +23,7 @@ class QuestionDetailView: UIView {
         let tv = UITextView()
         tv.text = " "
         tv.dataDetectorTypes = UIDataDetectorTypes.link
-        tv.font = UIFont(name: Stylesheet.Fonts.Thin, size: 20.0)
+        tv.font = UIFont(name: Stylesheet.Fonts.Thin, size: 18.0)
         tv.isEditable = false
       
         return tv

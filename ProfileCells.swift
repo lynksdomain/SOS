@@ -12,11 +12,13 @@ class ProfileCells: UITableViewCell {
 
     lazy var titleLabel: UILabel = {
         let tl = UILabel()
+        tl.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
         return tl
     }()
     
     lazy var answertf: UITextField = {
         let tf = UITextField()
+        tf.font = UIFont(name: Stylesheet.Fonts.Regular, size: 18.0)
         return tf
     }()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

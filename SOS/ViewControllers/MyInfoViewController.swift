@@ -15,6 +15,7 @@ class MyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(myInfoView)
+        view.backgroundColor = Stylesheet.Colors.White
         myInfoView.tableView.delegate = self
         myInfoView.tableView.dataSource = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButton))
@@ -68,6 +69,12 @@ extension MyInfoViewController: UITableViewDelegate {
 }
 
 extension MyInfoViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = Stylesheet.Colors.MainYellow
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.black
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -198,7 +205,7 @@ extension MyInfoViewController {
             textField.textAlignment = .right
         case 0:
             textField.isEnabled = false
-            textField.backgroundColor = Stylesheet.Colors.MainYellow
+            textField.backgroundColor = Stylesheet.Colors.White
             textField.layer.borderWidth = 0.0
             textField.borderStyle = .none
             textField.textAlignment = .right
@@ -214,14 +221,14 @@ extension MyInfoViewController {
             notes.backgroundColor = .lightText
         case 0:
             notes.isEditable = false
-            notes.backgroundColor = Stylesheet.Colors.MainYellow
+            notes.backgroundColor = Stylesheet.Colors.White
         default:
             break
         }
     }
     
     func editCellColorDuringEditing(cell: UITableViewCell) {
-        cell.backgroundColor = Stylesheet.Colors.MainYellow
+        cell.backgroundColor = Stylesheet.Colors.White
     }
 }
 

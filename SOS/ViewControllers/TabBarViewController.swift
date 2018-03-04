@@ -22,13 +22,13 @@ class TabBarVC: UIViewController {
         
         // Set controllers inside tab bar
         tabController.setViewController(SearchViewController().inNavController(), atIndex: 0)
-        tabController.setTitle("Sites", atIndex: 0)
+        tabController.setTitle("Search", atIndex: 0)
         
         tabController.setViewController(MyInfoViewController().inNavController(), atIndex: 1)
-        tabController.setTitle("User", atIndex: 1)
+        tabController.setTitle("MyInfo", atIndex: 1)
         
         tabController.setViewController(ForumViewController().inNavController(), atIndex: 2)
-        tabController.setTitle("Forum", atIndex: 2)
+        tabController.setTitle("FAQ", atIndex: 2)
         
         // Configure tab bar apparance
         tabController.defaultColor = Stylesheet.Contexts.TabBarController.DefaultColor
