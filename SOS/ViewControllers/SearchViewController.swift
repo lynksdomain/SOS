@@ -27,10 +27,11 @@ class SearchViewController: UIViewController {
                 let annotation = MKPointAnnotation()
                 let address = "\(site.address!) \(site.zipCode!)"
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
-
+                    if self.currentLocation.distance(from: location) <= 8046.72{
                     annotation.coordinate = location.coordinate
                     annotation.title = site.siteName
                     self.annotations.append(annotation)
+                    }
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
@@ -88,7 +89,7 @@ extension SearchViewController: UISearchBarDelegate{
                    self.currentLocation = $0
 //                   self.configureMapRegion(from: self.currentLocation)
             TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
-                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode == searchBar.text}
+                self.testSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil}
             }, errorHandler: { (testSiteError) in
                 print("getting the tests messed up: " + testSiteError.localizedDescription)
             })
