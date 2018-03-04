@@ -27,6 +27,7 @@ class QuestionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Stylesheet.Colors.White
         setupQuestionDetailView()
         configureViews()
         configureNavBar()
