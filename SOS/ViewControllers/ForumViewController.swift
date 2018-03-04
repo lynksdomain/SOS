@@ -41,6 +41,7 @@ class ForumViewController: UIViewController {
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
         forumView.tableView.dataSource = self
+        forumView.tableView.delegate = self
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
         
@@ -49,14 +50,6 @@ class ForumViewController: UIViewController {
 
     private func configureNavBar() {
         navigationItem.title = "F.A.Q."
-        
-        let askBarItem = UIBarButtonItem(title: "Ask", style: .plain, target: self, action: #selector(askAQuestion))
-        navigationItem.rightBarButtonItem = askBarItem
-    }
-    
-    @objc func askAQuestion() {
-        let addQuestionVC = AddQuestionViewController()
-        present(addQuestionVC, animated: true, completion: nil)
     }
 
 }
@@ -114,14 +107,44 @@ extension ForumViewController: UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
-//            let currentQuestion = forumQuestions[indexPath.row]
-            let currentQuestion = forumQuestions[0]
+            let currentQuestion = forumQuestions[indexPath.row]
+//            let currentQuestion = forumQuestions[0]
             cell.questionLabel.text = currentQuestion.question
             cell.answerLabel.text = currentQuestion.answer
             return cell
             
         }
     }
+    
+    
+}
+
+
+
+extension ForumViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return categories[0]
+        case 1:
+            return categories[1]
+        case 2:
+            return categories[2]
+        default:
+            return "Other"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let questionSetup = forumQuestions[indexPath.section]
+        let dvc = QuestionDetailViewController(question: questionSetup)
+//        let detailedNavCon = UINavigationController(rootViewController: dvc)
+//        detailedNavCon.modalTransitionStyle = .crossDissolve
+        self.navigationController?.pushViewController(dvc, animated: true)
+        
+    }
+    
     
     
 }
