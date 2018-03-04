@@ -25,7 +25,7 @@ class SearchViewController: UIViewController {
         didSet{
             for site in testSites{
                 let annotation = MKPointAnnotation()
-                let address = "\(site.address!) \(site.city!) \(site.zipCode!)"
+                let address = "\(site.address!) \(site.zipCode!)"
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
 
                     annotation.coordinate = location.coordinate

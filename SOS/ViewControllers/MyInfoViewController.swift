@@ -23,6 +23,7 @@ class MyInfoViewController: UIViewController {
         myInfoView.tableView.register(ProfileCells.self, forCellReuseIdentifier: "ProfileCell")
         myInfoView.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryCell")
         myInfoView.tableView.allowsSelection = false
+
     }
     
     @objc private func editButton() {
@@ -32,7 +33,7 @@ class MyInfoViewController: UIViewController {
     }
     
     @objc private func logOut() {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     

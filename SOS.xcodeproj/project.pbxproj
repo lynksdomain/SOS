@@ -13,6 +13,7 @@
 		819AFFD2204B2BEE0003E68C /* ForumQA.json in Resources */ = {isa = PBXBuildFile; fileRef = 819AFFD1204B2BEE0003E68C /* ForumQA.json */; };
 		819AFFD4204B2CBA0003E68C /* ForumQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */; };
 		819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD5204B30D20003E68C /* JSONParsingService.swift */; };
+		819AFFD8204B5B0B0003E68C /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */; };
 		81BE5AD0204AFA440077E5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */; };
 		81BE5AD7204AFA440077E5E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD6204AFA440077E5E2 /* Assets.xcassets */; };
 		81BE5ADA204AFA440077E5E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD8204AFA440077E5E2 /* LaunchScreen.storyboard */; };
@@ -29,7 +30,6 @@
 		81BE5B15204B08780077E5E2 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B09204B08780077E5E2 /* Stylesheet.swift */; };
 		81BE5B16204B08780077E5E2 /* UIViewController+Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B0A204B08780077E5E2 /* UIViewController+Nav.swift */; };
 		81BE5B17204B08780077E5E2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B0B204B08780077E5E2 /* Alert.swift */; };
-		81BE5B18204B08780077E5E2 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B0C204B08780077E5E2 /* LoginCoordinator.swift */; };
 		81BE5B19204B08780077E5E2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B0D204B08780077E5E2 /* UIColor+Hex.swift */; };
 		81BE5B1A204B08780077E5E2 /* UIApplication+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B0E204B08780077E5E2 /* UIApplication+topViewController.swift */; };
 		81BE5B1B204B08780077E5E2 /* AZTabBarButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B10204B08780077E5E2 /* AZTabBarButtonDelegate.swift */; };
@@ -50,6 +50,8 @@
 		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
 		C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */; };
 		C4C4F641204B3C9A0041C063 /* TestSiteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */; };
+		C4C4F643204B5E5C0041C063 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F642204B5E5C0041C063 /* LoginView.swift */; };
+		C4C4F645204B5EC50041C063 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F644204B5EC50041C063 /* LoginCollectionViewCell.swift */; };
 		E5ABFCDD9C26E2799BFB76C8 /* Pods_SOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,7 @@
 		819AFFD1204B2BEE0003E68C /* ForumQA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ForumQA.json; sourceTree = "<group>"; };
 		819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestion.swift; sourceTree = "<group>"; };
 		819AFFD5204B30D20003E68C /* JSONParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingService.swift; sourceTree = "<group>"; };
+		819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		81BE5ACC204AFA440077E5E2 /* SOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BE5AD6204AFA440077E5E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,7 +95,6 @@
 		81BE5B09204B08780077E5E2 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 		81BE5B0A204B08780077E5E2 /* UIViewController+Nav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nav.swift"; sourceTree = "<group>"; };
 		81BE5B0B204B08780077E5E2 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		81BE5B0C204B08780077E5E2 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		81BE5B0D204B08780077E5E2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		81BE5B0E204B08780077E5E2 /* UIApplication+topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+topViewController.swift"; sourceTree = "<group>"; };
 		81BE5B10204B08780077E5E2 /* AZTabBarButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AZTabBarButtonDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,8 @@
 		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteAPIClient.swift; sourceTree = "<group>"; };
 		C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteDataManager.swift; sourceTree = "<group>"; };
+		C4C4F642204B5E5C0041C063 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C4C4F644204B5EC50041C063 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		C56E74C6A56AD614D78FFA78 /* Pods-SOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOSTests/Pods-SOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFCD6D4F9934BAA561647EA8 /* Pods_SOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				81496915204B22650080B15C /* ForumQuestionTableViewCell.swift */,
+				C4C4F644204B5EC50041C063 /* LoginCollectionViewCell.swift */,
 				9311DCA9204B2A5F00B40B92 /* ProfileCells.swift */,
 				9311DCAB204B2A9800B40B92 /* HistoryTableViewCell.swift */,
 				9311DCAD204B2AAF00B40B92 /* NotesTableViewCell.swift */,
@@ -251,6 +256,8 @@
 				81BE5B22204B20C90077E5E2 /* MyInfoView.swift */,
 				81BE5B26204B239E0077E5E2 /* SearchView.swift */,
 				81496912204B22000080B15C /* ForumView.swift */,
+				819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */,
+				C4C4F642204B5E5C0041C063 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,7 +268,6 @@
 				81BE5B09204B08780077E5E2 /* Stylesheet.swift */,
 				81BE5B0A204B08780077E5E2 /* UIViewController+Nav.swift */,
 				81BE5B0B204B08780077E5E2 /* Alert.swift */,
-				81BE5B0C204B08780077E5E2 /* LoginCoordinator.swift */,
 				81BE5B0D204B08780077E5E2 /* UIColor+Hex.swift */,
 				81BE5B0E204B08780077E5E2 /* UIApplication+topViewController.swift */,
 				81BE5B0F204B08780077E5E2 /* Sources */,
@@ -530,11 +536,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BE5B1C204B08780077E5E2 /* AZTabBarButton.swift in Sources */,
+				C4C4F643204B5E5C0041C063 /* LoginView.swift in Sources */,
 				81BE5AF2204B01700077E5E2 /* SearchViewController.swift in Sources */,
 				C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */,
 				9311DCB0204B5E9B00B40B92 /* UserDefaultsHelper.swift in Sources */,
 				81BE5B21204B0DE80077E5E2 /* TestSite.swift in Sources */,
 				81BE5AF0204B013B0077E5E2 /* LoginViewController.swift in Sources */,
+				C4C4F645204B5EC50041C063 /* LoginCollectionViewCell.swift in Sources */,
 				9311DCAA204B2A5F00B40B92 /* ProfileCells.swift in Sources */,
 				81BE5B18204B08780077E5E2 /* LoginCoordinator.swift in Sources */,
 				9311DCAC204B2A9800B40B92 /* HistoryTableViewCell.swift in Sources */,
@@ -560,6 +568,7 @@
 				81BE5AF6204B01BB0077E5E2 /* SiteDetailViewController.swift in Sources */,
 				81BE5B1F204B08780077E5E2 /* AZTabBarController.swift in Sources */,
 				81BE5B02204B04DA0077E5E2 /* EditInfoViewController.swift in Sources */,
+				819AFFD8204B5B0B0003E68C /* QuestionDetailView.swift in Sources */,
 				81BE5B16204B08780077E5E2 /* UIViewController+Nav.swift in Sources */,
 				81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */,
 				81BE5AFA204B02180077E5E2 /* ForumViewController.swift in Sources */,
