@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import TableFlip
 
 class SiteDetailViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class SiteDetailViewController: UIViewController {
     var sections: [[String]]!
     var titles: [[String]]!
     var location: CLLocation!
+   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,7 @@ class SiteDetailViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(view.snp.edges)
         }
+
     }
     
     private func prepareDelegates() {

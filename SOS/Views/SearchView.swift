@@ -62,7 +62,7 @@ class SearchView: UIView {
             make.top.equalTo(snp.top)
             make.left.equalTo(snp.left)
             make.right.equalTo(snp.right)
-            make.height.equalTo(snp.height).dividedBy(6)
+            make.height.equalTo(snp.height).dividedBy(8)
         }
     }
     func setupMapView(){

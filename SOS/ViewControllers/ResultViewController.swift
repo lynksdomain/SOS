@@ -11,13 +11,19 @@ import SnapKit
 
 protocol FilterDelegate {
     func selectedCategoryChanged()
+    func filteredSitesUpdated()
 }
 
 class FilteringModel {
     var delegate: FilterDelegate!
     let categories = ["Free", "Walk-In", "Language", "Website"]
     var sites: [TestSite]!
-    var filteredSites: [TestSite]!
+    var filteredSites: [TestSite]! {
+        didSet {
+            delegate.filteredSitesUpdated()
+        }
+    }
+    
     var selectedCategory = Set<String>() {
         didSet {
             let sitesWithFilters = sites!
@@ -108,6 +114,10 @@ class ResultViewController: UIViewController {
 }
 
 extension ResultViewController: FilterDelegate {
+    func filteredSitesUpdated() {
+        dump(filterModel.filteredSites)
+    }
+    
     func selectedCategoryChanged() {
         contentView.tableView.reloadData()
     }
