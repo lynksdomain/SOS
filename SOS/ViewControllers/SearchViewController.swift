@@ -57,13 +57,13 @@ class SearchViewController: UIViewController {
                 
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
                     
-                    if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
+//                    if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
                         annotation.coordinate = location.coordinate
                         annotation.title = site.siteName
                         self.annotations.append(annotation)
                         self.annotatedSites.append(site)
                         self.annotatedCoordinates.append(location)
-                    }
+//                    }
 //                    if self.searchView.mapView.isUserLocationVisible == true{
 //
 //                    }else{
