@@ -41,11 +41,12 @@
 		81BE5B23204B20C90077E5E2 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B22204B20C90077E5E2 /* MyInfoView.swift */; };
 		81BE5B25204B20E40077E5E2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */; };
 		81BE5B27204B239E0077E5E2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B26204B239E0077E5E2 /* SearchView.swift */; };
+		81BE5B29204B31FD0077E5E2 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B28204B31FD0077E5E2 /* LocationService.swift */; };
+		81BE5B2B204B42D70077E5E2 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B2A204B42D70077E5E2 /* UserPreference.swift */; };
 		9311DCAA204B2A5F00B40B92 /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCA9204B2A5F00B40B92 /* ProfileCells.swift */; };
 		9311DCAC204B2A9800B40B92 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAB204B2A9800B40B92 /* HistoryTableViewCell.swift */; };
 		9311DCAE204B2AAF00B40B92 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAD204B2AAF00B40B92 /* NotesTableViewCell.swift */; };
-		81BE5B29204B31FD0077E5E2 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B28204B31FD0077E5E2 /* LocationService.swift */; };
-		81BE5B2B204B42D70077E5E2 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5B2A204B42D70077E5E2 /* UserPreference.swift */; };
+		9311DCB0204B5E9B00B40B92 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9311DCAF204B5E9B00B40B92 /* UserDefaultsHelper.swift */; };
 		C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A456E204B176800F4F7FC /* TabBarViewController.swift */; };
 		C4C4F63F204B36C40041C063 /* TestSiteAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */; };
 		C4C4F641204B3C9A0041C063 /* TestSiteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4F640204B3C9A0041C063 /* TestSiteDataManager.swift */; };
@@ -103,11 +104,12 @@
 		81BE5B22204B20C90077E5E2 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		81BE5B26204B239E0077E5E2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		81BE5B28204B31FD0077E5E2 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		81BE5B2A204B42D70077E5E2 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		9311DCA9204B2A5F00B40B92 /* ProfileCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCells.swift; sourceTree = "<group>"; };
 		9311DCAB204B2A9800B40B92 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		9311DCAD204B2AAF00B40B92 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
-		81BE5B28204B31FD0077E5E2 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		81BE5B2A204B42D70077E5E2 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
+		9311DCAF204B5E9B00B40B92 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		A0ABA4E01B52828A6CD2A199 /* Pods-SOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SOS/Pods-SOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C48A456E204B176800F4F7FC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSiteAPIClient.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				81BE5B24204B20E40077E5E2 /* NetworkHelper.swift */,
+				9311DCAF204B5E9B00B40B92 /* UserDefaultsHelper.swift */,
 				81BE5B28204B31FD0077E5E2 /* LocationService.swift */,
 				819AFFD5204B30D20003E68C /* JSONParsingService.swift */,
 				C4C4F63E204B36C40041C063 /* TestSiteAPIClient.swift */,
@@ -529,6 +532,7 @@
 				81BE5B1C204B08780077E5E2 /* AZTabBarButton.swift in Sources */,
 				81BE5AF2204B01700077E5E2 /* SearchViewController.swift in Sources */,
 				C48A456F204B176800F4F7FC /* TabBarViewController.swift in Sources */,
+				9311DCB0204B5E9B00B40B92 /* UserDefaultsHelper.swift in Sources */,
 				81BE5B21204B0DE80077E5E2 /* TestSite.swift in Sources */,
 				81BE5AF0204B013B0077E5E2 /* LoginViewController.swift in Sources */,
 				9311DCAA204B2A5F00B40B92 /* ProfileCells.swift in Sources */,

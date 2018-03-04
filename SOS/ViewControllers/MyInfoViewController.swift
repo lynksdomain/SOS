@@ -91,17 +91,30 @@ extension MyInfoViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let profileCell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCells
+            profileCell.answertf.delegate = self
             
             editTextFields(textField: profileCell.answertf)
             editCellColorDuringEditing(cell: profileCell)
             
             switch indexPath.row  {
             case 0 :
-                profileCell.titleLabel.text = "  Sex"
+                profileCell.answertf.tag = 0
+                profileCell.titleLabel.text = "   Sex"
+                if let sex = UserDefaultHelper.manager.getSex(){
+                    profileCell.answertf.text = sex
+                }
             case 1:
-                profileCell.titleLabel.text = "  Age"
+                profileCell.answertf.tag = 1
+                profileCell.titleLabel.text = "   Age"
+                if let age = UserDefaultHelper.manager.getAge(){
+                    profileCell.answertf.text = age
+                }
             case 2:
-                profileCell.titleLabel.text = "  Zip Code"
+                profileCell.answertf.tag = 2
+                profileCell.titleLabel.text = "   Zip Code"
+                if let zip = UserDefaultHelper.manager.getZipCode(){
+                    profileCell.answertf.text = zip
+                }
             default:
                 break
             }
@@ -109,19 +122,35 @@ extension MyInfoViewController: UITableViewDataSource {
             
         case 1:
             let historyCell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
-            
+            historyCell.answertf.delegate = self
             editTextFields(textField: historyCell.answertf)
             editCellColorDuringEditing(cell: historyCell)
             
             switch indexPath.row  {
             case 0 :
-                historyCell.titleLabel.text = "  Last Period"
+                historyCell.answertf.tag = 3
+                historyCell.titleLabel.text = "   Last Menstruation"
+                if let lastMentstruation = UserDefaultHelper.manager.getLastPeriod(){
+                    historyCell.answertf.text = lastMentstruation
+                }
             case 1:
-                historyCell.titleLabel.text = "  Last Sexual Activity"
+                historyCell.answertf.tag = 4
+                historyCell.titleLabel.text = "   Last Sexual Activity"
+                if let lastSexualActivity = UserDefaultHelper.manager.getLastSexualActivity(){
+                    historyCell.answertf.text = lastSexualActivity
+                }
             case 2:
-                historyCell.titleLabel.text = "  Last STD Test"
+                historyCell.answertf.tag = 5
+                historyCell.titleLabel.text = "   Last STD Test"
+                if let lastSTDTest = UserDefaultHelper.manager.getLastSTDTest(){
+                    historyCell.answertf.text = lastSTDTest
+                }
             case 3:
-                historyCell.titleLabel.text = "  Last HIV Test"
+                historyCell.answertf.tag = 6
+                historyCell.titleLabel.text = "   Last HIV Test"
+                if let lastHIVTest = UserDefaultHelper.manager.getLastHIVTest(){
+                    historyCell.answertf.text = lastHIVTest
+                }
             default:
                 break
             }
@@ -129,8 +158,10 @@ extension MyInfoViewController: UITableViewDataSource {
             
         case 2:
             let notesCell = tableView.dequeueReusableCell(withIdentifier: "NotesCell", for: indexPath) as! NotesTableViewCell
+            notesCell.notesTextView.delegate = self
             editNotes(notes: notesCell.notesTextView)
             editCellColorDuringEditing(cell: notesCell)
+            notesCell.notesTextView.text = UserDefaultHelper.manager.getNotes()
             return notesCell
         default:
             let cell = UITableViewCell()
@@ -147,6 +178,7 @@ extension MyInfoViewController {
         switch counter % 2 {
         case 1:
             navigationItem.rightBarButtonItem?.title = "Done"
+            
         case 0:
             navigationItem.rightBarButtonItem?.title = "Edit"
         default:
@@ -190,3 +222,34 @@ extension MyInfoViewController {
     }
 }
 
+
+extension MyInfoViewController: UITextViewDelegate{
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let cell = myInfoView.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? NotesTableViewCell
+        UserDefaultHelper.manager.setNotes(to: (cell?.notesTextView.text)!)
+    }
+}
+
+extension MyInfoViewController: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case 0:
+            UserDefaultHelper.manager.setSex(to: textField.text!)
+        case 1:
+            UserDefaultHelper.manager.setAge(to: textField.text!)
+        case 2:
+            UserDefaultHelper.manager.setZipCode(to: textField.text!)
+        case 3:
+            UserDefaultHelper.manager.setLastPeriod(to: textField.text!)
+        case 4:
+            UserDefaultHelper.manager.setLastSexualActivity(to: textField.text!)
+        case 5:
+            UserDefaultHelper.manager.setLastSTDTest(to: textField.text!)
+        case 6:
+            UserDefaultHelper.manager.setLastHIVTest(to: textField.text!)
+        default:
+            break
+        }
+    }
+    
+}
