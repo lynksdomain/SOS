@@ -22,6 +22,7 @@ class QuestionDetailView: UIView {
     lazy var answerTextview: UITextView = {
         let tv = UITextView()
         tv.text = " "
+        tv.dataDetectorTypes = UIDataDetectorTypes.link
         tv.font = UIFont(name: Stylesheet.Fonts.Thin, size: 20.0)
         tv.isEditable = false
       
