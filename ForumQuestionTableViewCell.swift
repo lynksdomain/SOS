@@ -19,7 +19,6 @@ class ForumQuestionTableViewCell: UITableViewCell {
         return lb
     }()
     
-    //usernameLabel - for user name
     lazy var answerLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
@@ -47,7 +46,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         questionLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp.top).offset(5)
+            make.top.equalTo(self.snp.top).offset(10)
             make.leading.equalTo(self.snp.leading).offset(10)
             make.trailing.equalTo(self.snp.trailing).offset(-10)
 //            make.height.equalTo(.snp.height).multipliedBy(0.5)
@@ -57,7 +56,7 @@ class ForumQuestionTableViewCell: UITableViewCell {
             make.top.equalTo(questionLabel.snp.bottom).offset(5)
             make.leading.equalTo(self.snp.leading).offset(10)
             make.trailing.equalTo(self.snp.trailing).offset(-10)
-            make.bottom.equalTo(self.snp.bottom).offset(-5)
+            make.bottom.equalTo(self.snp.bottom).offset(-10)
         }
     }
 }

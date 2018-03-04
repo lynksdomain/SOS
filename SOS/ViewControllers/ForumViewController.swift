@@ -19,6 +19,12 @@ class ForumViewController: UIViewController {
         }
     }
     
+    var categoriesDict: [String:[ForumQuestion]] = [:] {
+        didSet {
+            print("category dictionary keys: \(categoriesDict.keys.count), values: \(categoriesDict.values) ***")
+        }
+    }
+    
     var categories: [String] = [] {
         didSet {
             print("categories: \(categories)")
@@ -33,9 +39,14 @@ class ForumViewController: UIViewController {
             forumQuestions = questions
         }
         
-        // load question categories
         for ques in forumQuestions {
-            categories.append(ques.category)
+            if !categoriesDict.keys.contains(ques.category) {
+                categoriesDict[ques.category] = [ForumQuestion]()
+                categoriesDict[ques.category]?.append(ques)
+                categories.append(ques.category)
+            } else {
+                categoriesDict[ques.category]?.append(ques)
+            }
         }
         
         view.addSubview(forumView)
@@ -44,7 +55,6 @@ class ForumViewController: UIViewController {
         forumView.tableView.delegate = self
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
-        
         configureNavBar()
     }
 
@@ -58,7 +68,7 @@ class ForumViewController: UIViewController {
 extension ForumViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+        return categoriesDict.count
     }
     
     
@@ -68,46 +78,70 @@ extension ForumViewController: UITableViewDataSource {
         
         switch section {
         case 0:
-            return 1
+            return categoriesDict[categories[0]]!.count
         case 1:
-            return 1
+            return categoriesDict[categories[1]]!.count
         case 2:
-            return 1
+            return categoriesDict[categories[2]]!.count
+        case 3:
+            return categoriesDict[categories[3]]!.count
+        case 4:
+            return categoriesDict[categories[4]]!.count
         default:
-            return 5
+            return 0
         }
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+//            let currentQuestion = forumQuestions[indexPath.row]
         
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+            let currentQuestion = categoriesDict[categories[0]]![indexPath.row]
 //            let currentQuestion = forumQuestions[indexPath.row]
-            let currentQuestion = forumQuestions[0]
+//            let currentQuestion = forumQuestions[0]
             cell.questionLabel.text = currentQuestion.question
             cell.answerLabel.text = currentQuestion.answer
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+            let currentQuestion = categoriesDict[categories[1]]![indexPath.row]
 //            let currentQuestion = forumQuestions[indexPath.row]
-            let currentQuestion = forumQuestions[1]
+//            let currentQuestion = forumQuestions[1]
             cell.questionLabel.text = currentQuestion.question
             cell.answerLabel.text = currentQuestion.answer
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+            let currentQuestion = categoriesDict[categories[2]]![indexPath.row]
 //            let currentQuestion = forumQuestions[indexPath.row]
-            let currentQuestion = forumQuestions[2]
+//            let currentQuestion = forumQuestions[2]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+            let currentQuestion = categoriesDict[categories[3]]![indexPath.row]
+//          let currentQuestion = forumQuestions[indexPath.
+//          let currentQuestion = forumQuestions[2]
+            cell.questionLabel.text = currentQuestion.question
+            cell.answerLabel.text = currentQuestion.answer
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
+            let currentQuestion = categoriesDict[categories[4]]![indexPath.row]
+//            let currentQuestion = forumQuestions[indexPath.row]
+//            let currentQuestion = forumQuestions[2]
             cell.questionLabel.text = currentQuestion.question
             cell.answerLabel.text = currentQuestion.answer
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForumQuestionCell", for: indexPath) as! ForumQuestionTableViewCell
-            let currentQuestion = forumQuestions[indexPath.row]
+            let currentQuestion = categoriesDict[categories[0]]![indexPath.row]
+//            let currentQuestion = forumQuestions[indexPath.row]
 //            let currentQuestion = forumQuestions[0]
             cell.questionLabel.text = currentQuestion.question
             cell.answerLabel.text = currentQuestion.answer
@@ -131,16 +165,22 @@ extension ForumViewController: UITableViewDelegate {
             return categories[1]
         case 2:
             return categories[2]
+        case 3:
+            return categories[3]
+        case 4:
+            return categories[4]
         default:
             return "Other"
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         let questionSetup = forumQuestions[indexPath.section]
+        
+        
         let dvc = QuestionDetailViewController(question: questionSetup)
-//        let detailedNavCon = UINavigationController(rootViewController: dvc)
-//        detailedNavCon.modalTransitionStyle = .crossDissolve
         self.navigationController?.pushViewController(dvc, animated: true)
         
     }
