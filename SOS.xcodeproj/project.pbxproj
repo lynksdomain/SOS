@@ -13,6 +13,7 @@
 		819AFFD2204B2BEE0003E68C /* ForumQA.json in Resources */ = {isa = PBXBuildFile; fileRef = 819AFFD1204B2BEE0003E68C /* ForumQA.json */; };
 		819AFFD4204B2CBA0003E68C /* ForumQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */; };
 		819AFFD6204B30D20003E68C /* JSONParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD5204B30D20003E68C /* JSONParsingService.swift */; };
+		819AFFD8204B5B0B0003E68C /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */; };
 		81BE5AD0204AFA440077E5E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */; };
 		81BE5AD7204AFA440077E5E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD6204AFA440077E5E2 /* Assets.xcassets */; };
 		81BE5ADA204AFA440077E5E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BE5AD8204AFA440077E5E2 /* LaunchScreen.storyboard */; };
@@ -66,6 +67,7 @@
 		819AFFD1204B2BEE0003E68C /* ForumQA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ForumQA.json; sourceTree = "<group>"; };
 		819AFFD3204B2CBA0003E68C /* ForumQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumQuestion.swift; sourceTree = "<group>"; };
 		819AFFD5204B30D20003E68C /* JSONParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingService.swift; sourceTree = "<group>"; };
+		819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
 		81BE5ACC204AFA440077E5E2 /* SOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BE5ACF204AFA440077E5E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BE5AD6204AFA440077E5E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				81BE5B22204B20C90077E5E2 /* MyInfoView.swift */,
 				81BE5B26204B239E0077E5E2 /* SearchView.swift */,
 				81496912204B22000080B15C /* ForumView.swift */,
+				819AFFD7204B5B0B0003E68C /* QuestionDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				81BE5AF6204B01BB0077E5E2 /* SiteDetailViewController.swift in Sources */,
 				81BE5B1F204B08780077E5E2 /* AZTabBarController.swift in Sources */,
 				81BE5B02204B04DA0077E5E2 /* EditInfoViewController.swift in Sources */,
+				819AFFD8204B5B0B0003E68C /* QuestionDetailView.swift in Sources */,
 				81BE5B16204B08780077E5E2 /* UIViewController+Nav.swift in Sources */,
 				81496916204B22650080B15C /* ForumQuestionTableViewCell.swift in Sources */,
 				81BE5AFA204B02180077E5E2 /* ForumViewController.swift in Sources */,
