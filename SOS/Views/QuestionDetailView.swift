@@ -13,7 +13,7 @@ class QuestionDetailView: UIView {
     lazy var questionLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 15.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Regular, size: 20.0)
         lb.numberOfLines = 0
         return lb
     }()
@@ -22,7 +22,7 @@ class QuestionDetailView: UIView {
     lazy var answerLabel: UILabel = {
         let lb = UILabel()
         lb.text = " "
-        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 15.0)
+        lb.font = UIFont(name: Stylesheet.Fonts.Thin, size: 20.0)
         lb.numberOfLines = 0
         return lb
     }()
@@ -53,18 +53,18 @@ class QuestionDetailView: UIView {
     
     private func setupConstraints() {
         questionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
-            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(10)
-            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-10)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(20)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
             //            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
         }
         
         
         answerLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(questionLabel.snp.bottom).offset(10)
-            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(10)
-            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-10)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
+            make.top.equalTo(questionLabel.snp.bottom).offset(20)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(20)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-20)
+//            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
         }
     }
 }

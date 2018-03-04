@@ -1,17 +1,32 @@
- [
-  {
-  "question": "Should I wear a condom every time I have sex with my boyfriend?",
-  "answer": "Sexually transmitted diseases can be spread through vaginal, oral, and anal sex, so it's always important to wear a condom during every sexual encounter in order to protect yourself from contracting an STD.",
-  "category": "Safe Sex"
-  },
-  {
-  "question": "I'm a guy. What are my options for birth control?",
-  "answer": "The most common kinds of male contraception include condoms, withdrawal or pulling out, outercourse, and vasectomy.",
-  "category": "Birth Control"
-  },
-  {
-  "question": "I'm 16, how often should I be test for STDs or HIV?",
-  "answer": "Sexually active people under 25 years old should be screened at least once a year for syphilis, chlamydia, and gonorrhea. Those with multiple partners should be screened more frequently for STDs (e.g. at 3-to-6 month intervals)",
-  "category": "STD/HIV Testing"
-  }
-  ]
+[
+ {
+ "question": "Should I wear a condom every time I have sex with my boyfriend?",
+ "answer": "Sexually transmitted diseases can be spread through vaginal, oral, and anal sex, so it's always important to wear a condom during every sexual encounter in order to protect yourself from contracting an STD.",
+ "category": "Safe Sex"
+ },
+ {
+ "question": "I'm a guy. What are my options for birth control?",
+ "answer": "The most common kinds of male contraception include condoms, withdrawal or pulling out, outercourse, and vasectomy.",
+ "category": "Preventing Pregnancy"
+ },
+ {
+ "question": "I'm 16, how often should I be test for STDs or HIV?",
+ "answer": "Sexually active people under 25 years old should be screened at least once a year for syphilis, chlamydia, and gonorrhea. Those with multiple partners should be screened more frequently for STDs (e.g. at 3-to-6 month intervals)",
+ "category": "STD/HIV Testing"
+ },
+ {
+ "question": "Can I get pregnant when I'm on my period?",
+ "answer": "The monthly release of an egg from the ovaries isn’t always regular. Sometimes you can ovulate even during your period. And if you don’t use birth control, you could get pregnant.",
+ "category": "Preventing Pregnancy"
+ },
+ {
+ "question": "Can I get pregnant from anal sex?",
+ "answer": "Pregnancy from anal sex is unlikel",
+ "category": "Preventing Pregnancy"
+ },
+ {
+ "question": "I'm under 18 years old, can I go to a clinic alone?",
+ "answer": "Yes! In New York City you can get all of the following on your own: condoms, birth control, emergency contraception (morning-after pill), GYN exam, pregnancy test, abortion, prenatal care, sexual assault services, STI tests and treatment, and HIV tests",
+ "category": "Health Care"
+ }
+ ]
