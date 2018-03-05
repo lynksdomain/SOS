@@ -19,8 +19,6 @@ class MyInfoViewController: UIViewController {
         navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
         myInfoView.tableView.delegate = self
         myInfoView.tableView.dataSource = self
-        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
- 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         myInfoView.tableView.register(NotesTableViewCell.self, forCellReuseIdentifier: "NotesCell")
@@ -32,6 +30,7 @@ class MyInfoViewController: UIViewController {
     
     private func configureNavBar() {
         navigationItem.title = "My Info"
+        navigationController?.navigationBar.prefersLargeTitles = true
         let textAttributes = [NSAttributedStringKey.foregroundColor: Stylesheet.Colors.MainOrange]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -45,7 +44,6 @@ class MyInfoViewController: UIViewController {
     @objc private func logOut() {
         dismiss(animated: true, completion: nil)
     }
-    
     
 }
 

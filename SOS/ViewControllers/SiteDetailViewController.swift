@@ -14,16 +14,15 @@ class SiteDetailViewController: UIViewController {
     
     let contentView = SiteDetailView()
     var site: TestSite!
-    var sections: [[String]]!
+    var sections: [[String?]]!
     var titles: [[String]]!
     var location: CLLocation!
    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareContentView()
         prepareDelegates()
+        navigationItem.title = "Site Details"
         dump(site.location)
     }
 
@@ -56,7 +55,7 @@ extension SiteDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = Stylesheet.Colors.LightPink
+        view.tintColor = Stylesheet.Colors.MainYellow
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
     }
@@ -75,23 +74,32 @@ extension SiteDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! SiteDetailCollectionViewCell
+        cell.infoLabel.textColor = nil
+        cell.selectionStyle = .none
 //        let siteCategory = Array(site.detailDict.keys)[indexPath.section]
 //        let categoryDict = site.detailDict[siteCategory]
 //        let categoryKeys = Array(categoryDict!.keys)
 //        let key = categoryKeys[indexPath.row]
 //        let value = categoryDict![key] ?? "Mistake"
         
-        
-        let data = sections[indexPath.section][indexPath.row]
-        let title = titles[indexPath.section][indexPath.row]
-        if indexPath.section == 1{
-            if indexPath.row == 0{
-                cell.textLabel?.textColor = UIColor.blue
-            }
+        var textToDisplay = "NA"
+        if let data = sections[indexPath.section][indexPath.row] {
+            textToDisplay = data
         }
-        cell.textLabel?.text = title + "  :  " + data
+        let title = titles[indexPath.section][indexPath.row]
+        if indexPath.section == 1 || indexPath.section == 4 && textToDisplay != "NA" {
+            textToDisplay = textToDisplay.capitalized
+        }
+        
+        let actionableTitles: Set<String> = ["Address", "Phone Number", "Website"]
+        if actionableTitles.contains(title) {
+            cell.infoLabel.textColor = UIColor.blue
+        }
+//        cell.textLabel?.text = title + "  :  " + textToDisplay
+        cell.titleLabel.text = title
+        cell.titleLabel.font = UIFont(name: Stylesheet.Fonts.Bold, size: 18)
+        cell.infoLabel.text = textToDisplay
         return cell
     }
     
@@ -113,6 +121,27 @@ extension SiteDetailViewController: UITableViewDataSource {
                 }
             default:
                 print("these are not the rows you're looking for")
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                guard let text = sections[indexPath.section][indexPath.row]?.filter({CharacterSet.decimalDigits.contains(UnicodeScalar($0.description)!)}) else { return }
+                let textArray = Array(text)
+                let numArray = textArray.flatMap({Int($0.description)}).map({String($0)})
+                let phoneNumber = numArray.reduce("", +)
+                if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+                    
+                    let application:UIApplication = UIApplication.shared
+                    if (application.canOpenURL(phoneCallURL)) {
+                        application.open(phoneCallURL, options: [:], completionHandler: nil)
+                    }
+                }
+                print(phoneNumber)
+            case 1:
+                guard let text = sections[indexPath.section][indexPath.row] else { return }
+                UIApplication.shared.open(NSURL(string:text)! as URL)
+            default:
+                print("not the phone number")
             }
         default:
             print("these are not the sections you're looking for")

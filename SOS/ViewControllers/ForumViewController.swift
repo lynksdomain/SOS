@@ -44,7 +44,8 @@ class ForumViewController: UIViewController {
                 categoriesDict[ques.category]?.append(ques)
             }
         }
-        self.navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
+        navigationController?.navigationBar.tintColor = Stylesheet.Colors.MainOrange
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(forumView)
         view.backgroundColor = Stylesheet.Colors.White
         forumView.tableView.dataSource = self
@@ -52,12 +53,20 @@ class ForumViewController: UIViewController {
         forumView.tableView.rowHeight = UITableViewAutomaticDimension
         forumView.tableView.estimatedRowHeight = 120
         configureNavBar()
+        prepareForumView()
     }
 
     private func configureNavBar() {
         navigationItem.title = "F.A.Q."
         let textAttributes = [NSAttributedStringKey.foregroundColor: Stylesheet.Colors.MainOrange]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
+    private func prepareForumView() {
+        view.addSubview(forumView)
+        forumView.snp.makeConstraints { make in
+            make.edges.equalTo(view.snp.edges)
+        }
     }
 
 }

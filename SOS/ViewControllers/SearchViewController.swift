@@ -14,18 +14,31 @@ class SearchViewController: UIViewController {
     var currentSelectedSite: TestSite?
     let filterModel = FilteringModel()
     var currentSelectedLocation: CLLocation?
+    var searchTerm: String! {
+        didSet {
+            print("searchterm", searchTerm)
+            getData(zipCode: searchTerm)
+        }
+    }
     
     // GETTING DATA FROM API
     var model = TestSiteDataManager()
-    private func getData() {
+    private func getData(zipCode: String) {
+        let formattedZip = """
+                            "\(zipCode.dropLast().description)"
+                            """
         let endpoint = "https://data.cityofnewyork.us/resource/fqke-ix7c.json?$limit=20&$where=zip_code!%3D%22%22"
-        let endpointQueens = "https://data.cityofnewyork.us/resource/fqke-ix7c.json?$limit=20&$where=zip_code!%3D%22%22&borough=QUEENS"
+        let endpointQueens = """
+        https://data.cityofnewyork.us/resource/fqke-ix7c.json?$limit=40&$where=starts_with(zip_code,\(formattedZip))
+        """
+        print(endpointQueens)
         model.APIClient.getTestSites(from: endpointQueens, completionHandler: { [weak self] (sites) in
-//            self?.model.setTestSites(sites)
+            //            self?.model.setTestSites(sites)
             self?.filterModel.sites = sites
             self?.testSites = sites
+            print(sites)
         }) { (error) in
-            print(error)
+            print(error, endpointQueens)
         }
     }
     
@@ -48,41 +61,29 @@ class SearchViewController: UIViewController {
     
     var annotatedSites = [TestSite]()
     var annotatedCoordinates = [CLLocation]()
-    var testSites = [TestSite](){
+    
+    var testSites = [TestSite]() {
         didSet{
-            for site in testSites{
-                
+            for site in testSites {
                 let annotation = MKPointAnnotation()
                 let address = "\(site.address!) \(site.zipCode!)"
                 
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
+                    annotation.coordinate = location.coordinate
+                    annotation.title = site.siteName
                     
-//                    if self.searchView.mapView.userLocation.location!.distance(from: location) <= 8046.72{
-                        annotation.coordinate = location.coordinate
-                        annotation.title = site.siteName
-                        self.annotations.append(annotation)
-                        self.annotatedSites.append(site)
-                        self.annotatedCoordinates.append(location)
-//                    }
-//                    if self.searchView.mapView.isUserLocationVisible == true{
-//
-//                    }else{
-//                        if self.currentLocation.distance(from: location) <= 8046.72{
-//                            annotation.coordinate = location.coordinate
-//                            annotation.title = site.siteName
-//                            self.annotations.append(annotation)
-//                        }
-//                    }
-                    
-                    
+                    self.annotations.append(annotation)
+                    self.annotatedSites.append(site)
+                    self.annotatedCoordinates.append(location)
                 }, errorHandler: { (error) in
                     print("annotation error: " + error.localizedDescription)
                 })
             }
+            
             print(filterModel.selectedCategory)
             print("annotations:", annotations)
-            
         }
+        
     }
     
     
@@ -114,7 +115,7 @@ class SearchViewController: UIViewController {
             self.searchView.mapView.showsUserLocation = true
         }
         
-        getData()
+        //        getData()
     }
     
     func configureNavBar(){
@@ -122,8 +123,6 @@ class SearchViewController: UIViewController {
         navigationItem.rightBarButtonItem = listNavBarButtonItem
         navigationItem.titleView = searchView.siteSearchBar
         navigationController?.navigationBar.barTintColor = UIColor.white
-        
-        
     }
     func configureMapRegion(from inputCLLocation: CLLocation){
         let span = MKCoordinateSpanMake(0.1, 0.1)
@@ -146,59 +145,71 @@ extension SearchViewController: UISearchBarDelegate{
         guard let cityName = searchBar.text, searchBar.text != " " else {
             return
         }
-        print("THISISTHEONEEEEEE" + cityName)
-        LocationService.manager.getCityCordinateFromCityName(inputCityName: cityName, completion: {
-            self.currentLocation = $0
-            TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
-                self.searchView.mapView.removeAnnotations(self.annotations)
-                self.annotations.removeAll()
-                self.searchView.mapView.showsUserLocation = false
-                var lowerBoro: Borough?
-                var upperBoro: Borough?
-                switch searchBar.text!{
-                case "11361", "11362", "11363", "11364","11354", "11355", "11356", "11357", "11358", "11359", "11360","11365", "11366", "11367", "11412", "11423", "11432", "11433", "11434", "11435", "11436", "11101", "11102", "11103", "11104", "11105", "11106", "11374", "11375", "11379", "11385", "11691", "11692", "11693", "11694", "11695", "11697", "11004", "11005", "11411", "11413", "11422", "11426", "11427", "11428", "11429", "11414", "11415", "11416", "11417", "11418", "11419", "11420", "11421", "11368", "11369", "11370", "11372", "11373", "11377", "11378" :
-                    lowerBoro = Borough.queens
-                    upperBoro = Borough.purpleQueens
-                default:
-                    print("default")
-                    
-                }
-                var addressSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil && $0.borough != nil}
-                self.testSites = addressSites.filter{$0.borough == lowerBoro || $0.borough == upperBoro}
-            }, errorHandler: { (testSiteError) in
-                print("getting the tests messed up: " + testSiteError.localizedDescription)
-            })
-        }, errorHandler: {
-            let alert = UIAlertController(title: "Invalid Zip Code, please enter a valid zip code", message: "\($0)", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
-                self.searchView.siteSearchBar.text = ""
-            })
-            alert.addAction(alertAction)
-            self.present(alert, animated: true, completion: nil)
-            
-        })
+        
+        let numericalZip: String = cityName.filter({CharacterSet.decimalDigits.contains(UnicodeScalar($0.description)!)})
+        
+        
+        if numericalZip.count != 5 {
+            print("Please enter 5 digit zip code", numericalZip)
+            return
+        }
+        
+        //        LocationService.manager.getCityCordinateFromCityName(inputCityName: cityName, completion: {
+        //            self.currentLocation = $0
+        //            TestSiteAPIClient().getTestSites(from: TestSiteAPIClient.endpoint, completionHandler: { (onlineSites) in
+        //                self.searchView.mapView.removeAnnotations(self.annotations)
+        //                self.annotations.removeAll()
+        //                self.searchView.mapView.showsUserLocation = false
+        //                var lowerBoro: Borough?
+        //                var upperBoro: Borough?
+        //                switch searchBar.text!{
+        //                case "11361", "11362", "11363", "11364","11354", "11355", "11356", "11357", "11358", "11359", "11360","11365", "11366", "11367", "11412", "11423", "11432", "11433", "11434", "11435", "11436", "11101", "11102", "11103", "11104", "11105", "11106", "11374", "11375", "11379", "11385", "11691", "11692", "11693", "11694", "11695", "11697", "11004", "11005", "11411", "11413", "11422", "11426", "11427", "11428", "11429", "11414", "11415", "11416", "11417", "11418", "11419", "11420", "11421", "11368", "11369", "11370", "11372", "11373", "11377", "11378" :
+        //                    lowerBoro = Borough.queens
+        //                    upperBoro = Borough.purpleQueens
+        //                default:
+        //                    print("default")
+        //
+        //                }
+        //                var addressSites = onlineSites.filter{$0.address != nil && $0.zipCode != nil && $0.borough != nil}
+        //                self.testSites = addressSites.filter{$0.borough == lowerBoro || $0.borough == upperBoro}
+        //            }, errorHandler: { (testSiteError) in
+        //                print("getting the tests messed up: " + testSiteError.localizedDescription)
+        //            })
+        //        }, errorHandler: {
+        //            let alert = UIAlertController(title: "Invalid Zip Code, please enter a valid zip code", message: "\($0)", preferredStyle: .alert)
+        //            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+        //                self.searchView.siteSearchBar.text = ""
+        //            })
+        //            alert.addAction(alertAction)
+        //            self.present(alert, animated: true, completion: nil)
+        //
+        //        })
+        //    }
+        
+        //        if searchBar == self.searchView.venueSearchBar{
+        //            guard let searchTerm = searchBar.text, searchBar.text != " " else{
+        //                return
+        //            }
+        //            guard self.currentCity != " ", currentCity != "Please Enter your City" else{
+        //                return
+        //            }
+        //            var location = CLLocation(){
+        //                didSet{
+        //
+        //                    self.venues.removeAll()
+        //                    self.searchView.mapView.removeAnnotations(self.annotations)
+        //                    self.annotations.removeAll()
+        //                    VenueAFireAPIClient.manager.getVenues(searchTerm: searchTerm, location: location, completionHandler: {self.venues = $0
+        //                    }, errorHandler: {print($0)})
+        //                }
+        //            }
+        //            LocationService.manager.getCityCordinateFromCityName(inputCityName: currentCity, completion: {location = $0}, errorHandler: {print($0)})
+        //
+        //        }
+        //    }
+        self.annotations.removeAll()
+        self.searchTerm = cityName
     }
-    //        if searchBar == self.searchView.venueSearchBar{
-    //            guard let searchTerm = searchBar.text, searchBar.text != " " else{
-    //                return
-    //            }
-    //            guard self.currentCity != " ", currentCity != "Please Enter your City" else{
-    //                return
-    //            }
-    //            var location = CLLocation(){
-    //                didSet{
-    //
-    //                    self.venues.removeAll()
-    //                    self.searchView.mapView.removeAnnotations(self.annotations)
-    //                    self.annotations.removeAll()
-    //                    VenueAFireAPIClient.manager.getVenues(searchTerm: searchTerm, location: location, completionHandler: {self.venues = $0
-    //                    }, errorHandler: {print($0)})
-    //                }
-    //            }
-    //            LocationService.manager.getCityCordinateFromCityName(inputCityName: currentCity, completion: {location = $0}, errorHandler: {print($0)})
-    //
-    //        }
-    //    }
 }
 
 
