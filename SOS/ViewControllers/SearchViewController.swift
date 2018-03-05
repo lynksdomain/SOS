@@ -71,7 +71,7 @@ class SearchViewController: UIViewController {
                 LocationService.manager.getCityCordinateFromCityName(inputCityName: address, completion: { (location) in
                     annotation.coordinate = location.coordinate
                     annotation.title = site.siteName
-                    self.annotations.removeAll()
+                    
                     self.annotations.append(annotation)
                     self.annotatedSites.append(site)
                     self.annotatedCoordinates.append(location)
@@ -207,6 +207,7 @@ extension SearchViewController: UISearchBarDelegate{
         //
         //        }
         //    }
+        self.annotations.removeAll()
         self.searchTerm = cityName
     }
 }
