@@ -24,6 +24,17 @@ class SearchView: UIView {
         return map
     }()
     
+    lazy var userTrackingButton: MKUserTrackingButton = {
+        let trackingButton = MKUserTrackingButton()
+        trackingButton.mapView = mapView
+        trackingButton.backgroundColor = Stylesheet.Colors.LightGray
+        trackingButton.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
+        trackingButton.layer.borderWidth = 0.5
+        trackingButton.layer.cornerRadius = 5.0
+        trackingButton.layer.masksToBounds = true
+        return trackingButton
+    }()
+    
     lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -54,7 +65,7 @@ class SearchView: UIView {
     func setupViews(){
         setupCategoryToolbar()
         setupMapView()
-        
+        setupTrackingButton()
     }
     func setupCategoryToolbar() {
         addSubview(categoryCollectionView)
@@ -75,4 +86,11 @@ class SearchView: UIView {
         }
     }
 
+    private func setupTrackingButton() {
+        addSubview(userTrackingButton)
+        userTrackingButton.snp.makeConstraints { make in
+            make.left.equalTo(snp.left).offset(30)
+            make.bottom.equalTo(snp.bottom).offset(-30)
+        }
+    }
 }

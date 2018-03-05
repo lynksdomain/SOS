@@ -45,7 +45,6 @@ class MyInfoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
 }
 
 extension MyInfoViewController: UITableViewDelegate {

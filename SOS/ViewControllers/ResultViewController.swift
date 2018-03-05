@@ -16,7 +16,7 @@ protocol FilterDelegate {
 
 class FilteringModel {
     var delegate: FilterDelegate!
-    let categories = ["Free", "Walk-In", "Language", "Website"]
+    let categories = ["Free", "Walk-In", "Spanish", "Website"]
     var sites: [TestSite]!
     var filteredSites: [TestSite]! {
         didSet {
@@ -58,7 +58,7 @@ class FilteringModel {
             })
         }
         
-        if selectedCategory.contains("Language") {
+        if selectedCategory.contains("Spanish") {
             sitesWithFilters = sitesWithFilters.filter({ site in
                 if site.siteLanguages != nil && site.siteLanguages!.contains("Spanish") {
                     return true
