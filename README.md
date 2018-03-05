@@ -69,7 +69,7 @@ Then, run the following command in Terminal:
 `$ pod install`
 
 ## Collaborators
-- **Project Manager**: Masai Young
-- **Tech Lead**: Alan Holguin  
-- **Design Lead**: Margaret Chan  
-- **Demo Lead**: Ashlee Krammer
+- **Project Manager**: [Masai Young](https://github.com/saikhal)
+- **Tech Lead**: [Alan Holguin](https://github.com/lynksdomain)
+- **Design Lead**: [Margaret Chan ](https://github.com/margarethchan)
+- **Demo Lead**: [Ashlee Krammer](https://github.com/ashleealyse)
