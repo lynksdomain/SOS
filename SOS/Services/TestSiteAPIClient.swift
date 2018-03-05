@@ -11,7 +11,9 @@ import Foundation
 struct TestSiteAPIClient {
     static let endpoint = "https://data.cityofnewyork.us/resource/fqke-ix7c.json"
     func getTestSites(from urlStr: String, completionHandler: @escaping ([TestSite]) -> Void, errorHandler: (Error) -> Void) {
-        guard let url = URL(string: urlStr) else {return}
+        let encodedStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        print("encodedStr", encodedStr)
+        guard let url = URL(string: encodedStr) else {return}
         
 //        if let cachedImage = ImageCache.manager.getImage(urlStr: urlStr) {
 //            completionHandler(cachedImage)

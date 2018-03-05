@@ -18,6 +18,7 @@ class MyInfoView: UIView {
 //    
     lazy var tableView: UITableView = {
        let tv = UITableView()
+        tv.separatorStyle = .none
         return tv
     }()
     
