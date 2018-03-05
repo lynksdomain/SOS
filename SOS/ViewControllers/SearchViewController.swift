@@ -106,6 +106,10 @@ class SearchViewController: UIViewController {
         self.filterModel.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     
     
     func authorizationHandling(inputAuthization: CLAuthorizationStatus) {

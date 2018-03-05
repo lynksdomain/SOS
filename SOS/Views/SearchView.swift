@@ -27,7 +27,7 @@ class SearchView: UIView {
     lazy var userTrackingButton: MKUserTrackingButton = {
         let trackingButton = MKUserTrackingButton()
         trackingButton.mapView = mapView
-        trackingButton.backgroundColor = Stylesheet.Colors.LightGray
+        trackingButton.backgroundColor = UIColor.gray
         trackingButton.layer.borderColor = Stylesheet.Colors.LightGray.cgColor
         trackingButton.layer.borderWidth = 0.5
         trackingButton.layer.cornerRadius = 5.0
