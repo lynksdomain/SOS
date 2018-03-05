@@ -49,9 +49,9 @@ class ForumView: UIView {
     
     private func setupConstraints() {
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            make.width.equalTo(self.safeAreaLayoutGuide.snp.width)
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(snp.top)
+            make.width.equalTo(snp.width)
+            make.bottom.equalTo(snp.bottom)
         }
     }
 }

@@ -44,8 +44,8 @@ struct TestSite: Codable {
                 "Site Name": siteName]
     }
     
-    var location: [String] {
-        return [address, borough?.rawValue.uppercased(), buildingFloorSuite, city, zipCode].flatMap({$0})
+    var location: [String?] {
+        return [address, borough?.rawValue.uppercased(), buildingFloorSuite, city, zipCode]
     }
     
     var locationTitles: [String] {
@@ -91,12 +91,12 @@ struct TestSite: Codable {
                 "Sunday": hoursSunday]
     }
     
-    var cost: [String] {
-        return [free.rawValue, medicaid?.rawValue, medicare?.rawValue, slidingFee?.rawValue, otherInsurances?.rawValue].flatMap({$0})
+    var cost: [String?] {
+        return [free.rawValue, medicaid?.rawValue, medicare?.rawValue, slidingFee?.rawValue, otherInsurances?.rawValue, intake?.rawValue]
     }
     
     var costTitles: [String] {
-        return ["Free", "Medicaid", "Medicare", "Sliding Fee", "Other Insurances"]
+        return ["Free", "Medicaid", "Medicare", "Sliding Fee", "Other Insurances", "Walk-Ins Welcome"]
     }
     
     var costDict: [String: String?] {

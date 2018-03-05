@@ -14,7 +14,7 @@ class SiteDetailViewController: UIViewController {
     
     let contentView = SiteDetailView()
     var site: TestSite!
-    var sections: [[String]]!
+    var sections: [[String?]]!
     var titles: [[String]]!
     var location: CLLocation!
    
@@ -74,8 +74,8 @@ extension SiteDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        cell.textLabel?.textColor = nil
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! SiteDetailCollectionViewCell
+        cell.infoLabel.textColor = nil
         cell.selectionStyle = .none
 //        let siteCategory = Array(site.detailDict.keys)[indexPath.section]
 //        let categoryDict = site.detailDict[siteCategory]
@@ -83,24 +83,23 @@ extension SiteDetailViewController: UITableViewDataSource {
 //        let key = categoryKeys[indexPath.row]
 //        let value = categoryDict![key] ?? "Mistake"
         
-        
-        let data = sections[indexPath.section][indexPath.row]
+        var textToDisplay = "NA"
+        if let data = sections[indexPath.section][indexPath.row] {
+            textToDisplay = data
+        }
         let title = titles[indexPath.section][indexPath.row]
-//        if indexPath.section == 1{
-//            if indexPath.row == 0{
-//                cell.textLabel?.textColor = UIColor.blue
-//            }
-//        }
-//        if indexPath.section == 2{
-//            if indexPath.row == 0{
-//                cell.textLabel?.textColor = UIColor.blue
-//            }
-//        }
+        if indexPath.section == 1 || indexPath.section == 4 && textToDisplay != "NA" {
+            textToDisplay = textToDisplay.capitalized
+        }
+        
         let actionableTitles: Set<String> = ["Address", "Phone Number", "Website"]
         if actionableTitles.contains(title) {
-            cell.textLabel?.textColor = UIColor.blue
+            cell.infoLabel.textColor = UIColor.blue
         }
-        cell.textLabel?.text = title + "  :  " + data
+//        cell.textLabel?.text = title + "  :  " + textToDisplay
+        cell.titleLabel.text = title
+        cell.titleLabel.font = UIFont(name: Stylesheet.Fonts.Bold, size: 18)
+        cell.infoLabel.text = textToDisplay
         return cell
     }
     
@@ -126,7 +125,7 @@ extension SiteDetailViewController: UITableViewDataSource {
         case 2:
             switch indexPath.row {
             case 0:
-                let text = sections[indexPath.section][indexPath.row].filter({CharacterSet.decimalDigits.contains(UnicodeScalar($0.description)!)})
+                guard let text = sections[indexPath.section][indexPath.row]?.filter({CharacterSet.decimalDigits.contains(UnicodeScalar($0.description)!)}) else { return }
                 let textArray = Array(text)
                 let numArray = textArray.flatMap({Int($0.description)}).map({String($0)})
                 let phoneNumber = numArray.reduce("", +)
@@ -139,7 +138,7 @@ extension SiteDetailViewController: UITableViewDataSource {
                 }
                 print(phoneNumber)
             case 1:
-                let text = sections[indexPath.section][indexPath.row]
+                guard let text = sections[indexPath.section][indexPath.row] else { return }
                 UIApplication.shared.open(NSURL(string:text)! as URL)
             default:
                 print("not the phone number")
