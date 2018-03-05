@@ -23,6 +23,7 @@ class SiteDetailViewController: UIViewController {
         prepareContentView()
         prepareDelegates()
         navigationItem.title = "Site Details"
+        navigationController?.navigationBar.prefersLargeTitles = true
         dump(site.location)
     }
 
@@ -57,7 +58,7 @@ extension SiteDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = Stylesheet.Colors.MainYellow
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.textColor = UIColor.black
     }
 }
 
@@ -95,6 +96,9 @@ extension SiteDetailViewController: UITableViewDataSource {
         let actionableTitles: Set<String> = ["Address", "Phone Number", "Website"]
         if actionableTitles.contains(title) {
             cell.infoLabel.textColor = UIColor.blue
+        }
+        if textToDisplay.lowercased() == "na" {
+            textToDisplay = textToDisplay.uppercased()
         }
 //        cell.textLabel?.text = title + "  :  " + textToDisplay
         cell.titleLabel.text = title
