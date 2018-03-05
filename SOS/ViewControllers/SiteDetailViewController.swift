@@ -74,8 +74,8 @@ extension SiteDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath)
-        cell.textLabel?.textColor = nil
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! SiteDetailCollectionViewCell
+        cell.infoLabel.textColor = nil
         cell.selectionStyle = .none
 //        let siteCategory = Array(site.detailDict.keys)[indexPath.section]
 //        let categoryDict = site.detailDict[siteCategory]
@@ -88,14 +88,18 @@ extension SiteDetailViewController: UITableViewDataSource {
             textToDisplay = data
         }
         let title = titles[indexPath.section][indexPath.row]
-        if indexPath.section == 1 || indexPath.section == 4 {
+        if indexPath.section == 1 || indexPath.section == 4 && textToDisplay != "NA" {
             textToDisplay = textToDisplay.capitalized
         }
+        
         let actionableTitles: Set<String> = ["Address", "Phone Number", "Website"]
         if actionableTitles.contains(title) {
-            cell.textLabel?.textColor = UIColor.blue
+            cell.infoLabel.textColor = UIColor.blue
         }
-        cell.textLabel?.text = title + "  :  " + textToDisplay
+//        cell.textLabel?.text = title + "  :  " + textToDisplay
+        cell.titleLabel.text = title
+        cell.titleLabel.font = UIFont(name: Stylesheet.Fonts.Bold, size: 18)
+        cell.infoLabel.text = textToDisplay
         return cell
     }
     
